@@ -24,7 +24,11 @@
           locale: "vi" %>
       </li>
       <li class="nav-link">
-        <%= link_to t(".login"), "#" %>
+        <% if logged_in? %>
+          <%= link_to t(".logout"), logout_path, method: :delete %>
+        <% elsif %>
+          <%= link_to t(".login"), login_path %>
+        <% end %>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true"

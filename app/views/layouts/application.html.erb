@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
     <%= render "layouts/shim" %>
+    <%= javascript_include_tag "i18n" %>
+    <%= javascript_include_tag "translations", skip_pipeline: true %>
   </head>
 
   <body data-scrollbar-auto-hide="n" class="hold-transition sidebar-mini layout-fixed">
@@ -19,6 +21,7 @@
       <div class="content-wrapper">
         <div class="content container-fluid">
           <div class="container-fluid">
+            <%= sanitize toastr_flash %>
             <%= yield %>
           </div>
         </div>
@@ -27,5 +30,9 @@
       <%= render "layouts/footer" %>
       <%= render "layouts/control_sidebar" %>
     <div>
+    <script type="text/javascript">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+    </script>
   </body>
 </html>

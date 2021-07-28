@@ -6,15 +6,39 @@ en:
       en: "English"
       vi: "Vietnamese"
       login: "Log in"
+      logout: "Log out"
     sidebar:
       training_system: "Training System"
-      courses: "Courses"
     control_sidebar:
       title: "Tiltle"
       content: "Sidebar content"
+  sidebar:
+    admin:
+      courses: "Courses"
+      subjects: "Subjects"
+      all_supervisors: "All supervisors"
+    supervisor:
+      courses: "Courses"
+      all_trainees: "All trainees"
+    trainee:
+      my_course: "My course"
+      history_report: "History report"
+      daily_report: "Daily report"
   static_pages:
     home:
       heading: "Home"
       intro: "Welcome to Training System"
       intro2: "Don't have an account yet ?"
       signup: "Sign up now!"
+      welcome: "Welcome %{role}"
+  sessions:
+    new:
+      header: "Login"
+      title: "Login"
+      password: "Password"
+      login: "Login"
+      new_user: "New user?"
+      signup: "Sign up"
+      logged_in: "You are logged in."
+    create:
+      invalid_login: "Email/password invalid"

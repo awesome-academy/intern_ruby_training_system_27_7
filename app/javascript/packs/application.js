@@ -21,3 +21,5 @@ document.addEventListener('turbolinks:load', () => {
 import '../stylesheets/application'
 require('admin-lte')
 import '@fortawesome/fontawesome-free/js/all'
+
+global.toastr = require('toastr')

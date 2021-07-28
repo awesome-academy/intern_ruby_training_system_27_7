@@ -15,6 +15,16 @@ class User < ApplicationRecord
 
   enum role_id: {admin: 0, supervisor: 1, trainee: 2}
 
+  has_secure_password
+
+  class << self
+    def digest string
+      min_cost = ActiveModel::SecurePassword.min_cost
+      cost = min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+      BCrypt::Password.create string, cost: cost
+    end
+  end
+
   private
   def downcase_email
     email.downcase!
