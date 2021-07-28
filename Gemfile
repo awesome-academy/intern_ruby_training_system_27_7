@@ -39,7 +39,6 @@ group :test do
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 4.0.1"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
@@ -47,6 +46,10 @@ end
 
 group :production do
   gem "pg", "1.1.4"
+end
+
+group :development, :test do
+  gem "rspec-rails", "~> 4.0.1"
 end
 
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)

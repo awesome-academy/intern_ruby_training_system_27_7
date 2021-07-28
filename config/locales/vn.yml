@@ -1,0 +1,20 @@
+vi:
+
+  base_title: "Hệ thống đào tạo"
+  layouts:
+    header:
+      en: "Tiếng Anh"
+      vi: "Tiếng Việt"
+      login: "Đăng nhập"
+    sidebar:
+      training_system: "Hệ thống đào tạo"
+      courses: "Khóa học"
+    control_sidebar:
+      title: "Tiêu đề"
+      content: "Nội dung"
+  static_pages:
+    home:
+      heading: "Trang chủ"
+      intro: "Chào mừng tới Hệ thống đào tạo"
+      intro2: "Chưa có tài khoản ?"
+      signup: "Đăng ký ngay!"
