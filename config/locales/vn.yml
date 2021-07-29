@@ -6,15 +6,39 @@ vi:
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
       login: "Đăng nhập"
+      logout: "Đăng xuất"
     sidebar:
       training_system: "Hệ thống đào tạo"
-      courses: "Khóa học"
     control_sidebar:
       title: "Tiêu đề"
       content: "Nội dung"
+  sidebar:
+    admin:
+      courses: "Khóa học"
+      subjects: "Môn học"
+      all_supervisors: "Danh sách người hướng dẫn"
+    supervisor:
+      courses: "Khóa học"
+      all_trainees: "Danh sách học viên"
+    trainee:
+      my_course: "Khóa học của tôi"
+      history_report: "Lịch sử báo cáo"
+      daily_report: "Báo cáo hàng ngày"
   static_pages:
     home:
       heading: "Trang chủ"
       intro: "Chào mừng tới Hệ thống đào tạo"
       intro2: "Chưa có tài khoản ?"
       signup: "Đăng ký ngay!"
+      welcome: "Chào mừng %{role}"
+  sessions:
+    new:
+      header: "Đăng nhập"
+      title: "Đăng nhập"
+      password: "Mật khẩu"
+      login: "Đăng nhập"
+      new_user: "Người dùng mới?"
+      signup: "Đăng ký"
+      logged_in: "Bạn đã đăng nhập."
+    create:
+      invalid_login: "Tài khoản/Mật khẩu không hợp lệ"

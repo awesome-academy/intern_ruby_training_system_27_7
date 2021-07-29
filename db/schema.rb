@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_27_083231) do
+ActiveRecord::Schema.define(version: 2021_07_28_020119) do
 
   create_table "course_subject_tasks", charset: "utf8", force: :cascade do |t|
     t.bigint "course_subject_id", null: false
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2021_07_27_083231) do
 
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "full_name"
     t.integer "role_id", default: 2, null: false
     t.datetime "created_at", precision: 6, null: false
