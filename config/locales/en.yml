@@ -1,6 +1,12 @@
 en:
 
   base_title: "Training System"
+  please_login: "Please log in."
+  success: "Success"
+  course_deleted: "Deleted course successfully"
+  delete_fail: "Failed to delete"
+  not_found: "Not found"
+  insufficient_privileges: "You are not admin or supervisor"
   layouts:
     header:
       en: "English"
@@ -9,21 +15,32 @@ en:
       logout: "Log out"
     sidebar:
       training_system: "Training System"
+      new_course: "Create a new course"
     control_sidebar:
       title: "Tiltle"
       content: "Sidebar content"
   sidebar:
-    admin:
+    course:
       courses: "Courses"
-      subjects: "Subjects"
-      all_supervisors: "All supervisors"
-    supervisor:
-      courses: "Courses"
-      all_trainees: "All trainees"
-    trainee:
-      my_course: "My course"
+      my_course: "My courses"
+      all_course: "All courses"
+      new_course: "Create a new course"
+    report:
+      report: "Báo cáo"
       history_report: "History report"
       daily_report: "Daily report"
+    user:
+      user: "All users"
+      all_supervisors: "All supervisors"
+      all_trainees: "All trainees"
+    subject:
+      subjects: "Subjects"
+      all_subject: "All subjects"
+      new_subject: "Create a new subject"
+  shared:
+    error_messages:
+      intro: "The form contains"
+      error: "error"
   static_pages:
     home:
       heading: "Home"
@@ -42,3 +59,36 @@ en:
       logged_in: "You are logged in."
     create:
       invalid_login: "Email/password invalid"
+  courses:
+    new:
+      heading: "New course"
+      confirm: "Confirm"
+    index:
+      heading: "All courses"
+      course_name: "Course name"
+      start_time: "Start time"
+      status: "Status"
+    show:
+      start_date: "Start date"
+      status: "Status"
+      subjects: "Subjects"
+      participants: "Participants"
+    course:
+      sure: "Are you sure ?"
+  course_subjects:
+    course_subject:
+      time: "Duration"
+  activerecord:
+    attributes:
+      course:
+        name: "Course's name"
+        description: "Description"
+        start_time: "Start time"
+        subjects: "Subjects"
+  views:
+    pagination:
+      first: "« FIRST"
+      last: "LAST »"
+      previous: "‹ PREV"
+      next: "NEXT ›"
+      truncate: "…"

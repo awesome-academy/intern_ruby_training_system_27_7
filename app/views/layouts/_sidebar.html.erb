@@ -24,12 +24,15 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <% if logged_in? %>
+          <%= render "sidebar/course" %>
+          <% if current_user.admin? || current_user.supervisor? %>
+            <%= render "sidebar/user" %>
+          <% end %>
           <% if current_user.admin? %>
-            <%= render "sidebar/admin" %>
-          <% elsif current_user.supervisor? %>
-            <%= render "sidebar/supervisor" %>
-          <% elsif current_user.trainee? %>
-            <%= render "sidebar/trainee" %>
+            <%= render "sidebar/subject" %>
+          <% end %>
+          <% if current_user.trainee? %>
+            <%= render "sidebar/report" %>
           <% end %>
         <% end %>
       </ul>

@@ -1,0 +1,37 @@
+<li class="nav-item has-treeview menu-open">
+  <div class="nav-link active">
+    <i class="nav-icon fas fa-tachometer-alt"></i>
+    <p>
+      <%= t ".courses"  %>
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </div>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <%= link_to courses_path do %>
+        <div class="nav-link">
+          <i class="fa fa-th-list nav-icon"></i>
+          <p><%= t ".all_course" %></p>
+        </div>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "#" do %>
+        <div class="nav-link">
+          <i class="fa fa-book nav-icon"></i>
+          <p><%= t ".my_course" %></p>
+        </div>
+      <% end %>
+    </li>
+    <% if current_user.admin? || current_user.supervisor? %>
+      <li class="nav-item">
+        <%= link_to new_course_path do %>
+          <div class="nav-link">
+            <i class="fa fa-plus-square nav-icon"></i>
+            <p><%= t ".new_course" %></p>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</li>

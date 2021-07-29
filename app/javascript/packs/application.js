@@ -23,3 +23,13 @@ require('admin-lte')
 import '@fortawesome/fontawesome-free/js/all'
 
 global.toastr = require('toastr')
+
+require('jquery')
+require('select2')
+
+$(document).on('turbolinks:load', () => {
+  $('#chosen-subject').select2({
+    allowClear: true,
+    theme: 'bootstrap'
+  });
+});
