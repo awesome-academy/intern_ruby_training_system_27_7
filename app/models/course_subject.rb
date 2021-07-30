@@ -2,6 +2,8 @@ class CourseSubject < ApplicationRecord
   belongs_to :course
   belongs_to :subject
 
+  delegate :name, to: :subject, prefix: true
+
   has_many :course_subject_tasks, dependent: :destroy
   has_many :user_course_subjects, dependent: :destroy
   has_many :user_courses, through: :user_course_subjects

@@ -1,0 +1,27 @@
+<li class="nav-item has-treeview menu-open">
+  <div class="nav-link active">
+    <i class="nav-icon fas fa-calendar"></i>
+    <p>
+      <%= t ".report"  %>
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </div>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <%= link_to "#" do %>
+        <div class="nav-link">
+          <i class="fa fa-history nav-icon"></i>
+          <p><%= t ".history_report" %></p>
+        </div>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "#" do %>
+        <div class="nav-link">
+          <i class="fa fa-check-square nav-icon"></i>
+          <p><%= t ".daily_report" %></p>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+</li>

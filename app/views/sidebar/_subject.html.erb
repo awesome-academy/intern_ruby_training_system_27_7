@@ -1,0 +1,27 @@
+<li class="nav-item has-treeview menu-open">
+  <div class="nav-link active">
+    <i class="nav-icon fas fa-tachometer-alt"></i>
+    <p>
+      <%= t ".subjects"  %>
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </div>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <%= link_to "#" do %>
+        <div class="nav-link">
+          <i class="fa fa-th-list nav-icon"></i>
+          <p><%= t ".all_subject" %></p>
+        </div>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "#" do %>
+        <div class="nav-link">
+          <i class="fa fa-plus-square nav-icon"></i>
+          <p><%= t ".new_subject" %></p>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+</li>

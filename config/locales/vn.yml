@@ -1,6 +1,12 @@
 vi:
 
   base_title: "Hệ thống đào tạo"
+  please_login: "Bạn chưa đăng nhập."
+  success: "Thành công"
+  course_deleted: "Xóa khóa học thành công"
+  delete_fail: "Xóa thất bại"
+  not_found: "Không thể tìm thấy"
+  insufficient_privileges: "Bạn không phải admin hoặc người hướng dẫn"
   layouts:
     header:
       en: "Tiếng Anh"
@@ -9,21 +15,32 @@ vi:
       logout: "Đăng xuất"
     sidebar:
       training_system: "Hệ thống đào tạo"
+      new_course: "Tạo mới khóa học"
     control_sidebar:
       title: "Tiêu đề"
       content: "Nội dung"
   sidebar:
-    admin:
+    course:
       courses: "Khóa học"
-      subjects: "Môn học"
-      all_supervisors: "Danh sách người hướng dẫn"
-    supervisor:
-      courses: "Khóa học"
-      all_trainees: "Danh sách học viên"
-    trainee:
       my_course: "Khóa học của tôi"
+      all_course: "Toàn bộ khóa học"
+      new_course: "Tạo mới khóa học"
+    report:
+      report: "Báo cáo"
       history_report: "Lịch sử báo cáo"
       daily_report: "Báo cáo hàng ngày"
+    user:
+      user: "Danh sách thành viên"
+      all_supervisors: "Danh sách người hướng dẫn"
+      all_trainees: "Danh sách học viên"
+    subject:
+      subjects: "Môn học"
+      all_subject: "Toàn bộ môn học"
+      new_subject: "Tạo môn học mới"
+  shared:
+    error_messages:
+      intro: "Biểu mẫu chứa"
+      error: "lỗi"
   static_pages:
     home:
       heading: "Trang chủ"
@@ -42,3 +59,36 @@ vi:
       logged_in: "Bạn đã đăng nhập."
     create:
       invalid_login: "Tài khoản/Mật khẩu không hợp lệ"
+  courses:
+    new:
+      heading: "Khóa học mới"
+      confirm: "Xác nhận"
+    index:
+      heading: "Toàn bộ khóa học"
+      course_name: "Tên khóa học"
+      start_time: "Thời gian bắt đầu"
+      status: "Trạng thái"
+    show:
+      start_date: "Ngày bắt đầu"
+      status: "Trạng thái"
+      subjects: "Môn học"
+      participants: "Người tham gia"
+    course:
+      sure: "Bạn chắc chứ ?"
+  course_subjects:
+    course_subject:
+      time: "Thời gian"
+  activerecord:
+    attributes:
+      course:
+        name: "Tên khóa học"
+        description: "Mô tả khóa học"
+        start_time: "Thời gian bắt đầu"
+        subjects: "Môn học"
+  views:
+    pagination:
+      first: "« ĐẦU"
+      last: "CUỐI »"
+      previous: "‹ TRƯỚC"
+      next: "SAU ›"
+      truncate: "…"

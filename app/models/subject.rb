@@ -8,4 +8,6 @@ class Subject < ApplicationRecord
   validates :description, presence: true,
     length: {maximum: Settings.maximum_content_length}
   validates :duration, presence: true
+
+  scope :get_list, ->{select(:id, :name)}
 end

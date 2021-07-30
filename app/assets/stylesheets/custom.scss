@@ -8,3 +8,35 @@ img[alt*="language_logo"]{
   vertical-align: middle;
   border-style: none;
 }
+
+#login {
+  width: 600px;
+  min-height: 450px;
+}
+
+.course-table{
+  .name, .start_time {
+    width: 30%;
+  }
+
+  .status, .btnt {
+    width: 20%;
+  }
+}
+
+img[alt*="subject_logo"]{
+  width: 120px;
+  height: 80px;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.subject-image {
+  float: left;
+  width: 20%;
+  padding-right: 10px;
+}
+
+.subject-info {
+  float: left;
+}
