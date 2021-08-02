@@ -4,6 +4,7 @@ en:
   please_login: "Please log in."
   success: "Success"
   course_deleted: "Deleted course successfully"
+  user_course_deleted: "Deleted user from course successfully"
   delete_fail: "Failed to delete"
   not_found: "Not found"
   insufficient_privileges: "You are not admin or supervisor"
@@ -26,7 +27,7 @@ en:
       all_course: "All courses"
       new_course: "Create a new course"
     report:
-      report: "Báo cáo"
+      report: "Report"
       history_report: "History report"
       daily_report: "Daily report"
     user:
@@ -73,11 +74,23 @@ en:
       status: "Status"
       subjects: "Subjects"
       participants: "Participants"
+      name: "Name"
+      add_trainees: "Add trainees"
+      confirm: "Confirm"
+      supervisor_list: "List of supervisors (%{count})"
+      trainee_list: "List of trainees (%{count})"
     course:
       sure: "Are you sure ?"
   course_subjects:
     course_subject:
       time: "Duration"
+  user_courses:
+    user_course:
+      sure: "Sure?"
+    create:
+      success: "Add user successfully"
+      failed: "Failed to add user"
+      user_in_course: "User had been in course"
   activerecord:
     attributes:
       course:

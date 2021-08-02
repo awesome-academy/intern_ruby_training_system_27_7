@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  scope :get_trainees, ->{select(:id, :full_name).where role_id: :trainee}
+
   enum role_id: {admin: 0, supervisor: 1, trainee: 2}
 
   has_secure_password

@@ -20,4 +20,11 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "please_login"
     redirect_to login_url
   end
+
+  def logged_in_supervisor
+    return if current_user.admin? || current_user.supervisor?
+
+    flash[:warning] = t "insufficient_privileges"
+    redirect_to root_url
+  end
 end

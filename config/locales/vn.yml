@@ -4,6 +4,7 @@ vi:
   please_login: "Bạn chưa đăng nhập."
   success: "Thành công"
   course_deleted: "Xóa khóa học thành công"
+  user_course_deleted: "Xóa thành viên khỏi khóa học thành công"
   delete_fail: "Xóa thất bại"
   not_found: "Không thể tìm thấy"
   insufficient_privileges: "Bạn không phải admin hoặc người hướng dẫn"
@@ -73,11 +74,23 @@ vi:
       status: "Trạng thái"
       subjects: "Môn học"
       participants: "Người tham gia"
+      name: "Tên"
+      add_trainees: "Thêm học viên"
+      confirm: "Xác nhận"
+      supervisor_list: "Danh sách người hướng dẫn (%{count})"
+      trainee_list: "Danh sách học viên (%{count})"
     course:
       sure: "Bạn chắc chứ ?"
   course_subjects:
     course_subject:
       time: "Thời gian"
+  user_courses:
+    user_course:
+      sure: "Bạn chắc chắn chứ?"
+    create:
+      success: "Thêm thành viên thành công"
+      failed: "Thêm thành viên thất bại"
+      user_in_course: "Thành viên đã trong khóa học này"
   activerecord:
     attributes:
       course:
