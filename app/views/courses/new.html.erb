@@ -28,7 +28,7 @@
         <div class="form-group">
           <%= f.label :subjects %>
           <%= f.select :subject_ids, @subjects.pluck(:name, :id),
-           {include_blank: false},
+           {include_blank: false,  include_hidden: false},
            {id: "chosen-subject", class: "form-control", multiple: "true"} %>
         </div>
         <%= f.submit t(".confirm"), class: "btn btn-primary" %>

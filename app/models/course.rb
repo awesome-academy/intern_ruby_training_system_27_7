@@ -1,7 +1,11 @@
 class Course < ApplicationRecord
   COURSE_PARAMS = [:name, :description, :start_time,
     subject_ids: [],
-    course_subjects_attributes: [:id, :course_id, :subject_id]].freeze
+    course_subjects_attributes: [:id, :course_id, :subject_id],
+    user_ids: [],
+    user_courses_attributes: [:id, :user_id, :course_id]].freeze
+
+  delegate :admin, :supervisor, :trainee, to: :users
 
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses
@@ -10,6 +14,7 @@ class Course < ApplicationRecord
   has_many :subjects, through: :course_subjects
 
   accepts_nested_attributes_for :course_subjects, allow_destroy: true
+  accepts_nested_attributes_for :user_courses, allow_destroy: true
 
   validates :name, presence: true,
     length: {maximum: Settings.maximum_name_length}, uniqueness: true

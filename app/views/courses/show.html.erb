@@ -63,7 +63,41 @@
               <%= paginate @course_subjects %>
             </div>
             <div class="tab-pane" id="participants">
-            hi
+              <div class="list-supervisor">
+                <%= t ".supervisor_list", count: @course.supervisor.count %>
+              </div>
+              <div class="list-trainee">
+                <%= t ".trainee_list", count: @course.trainee.count %>
+                <table class="table table-striped trainees">
+                  <thead>
+                    <tr>
+                      <th class="trainee-table-name"><%= t ".name" %></th>
+                      <th class="trainee-table-start_time">
+                        <%= t ".start_date" %></th>
+                      <th class="trainee-table-status"><%= t ".status" %></th>
+                      <th class="trainee-table-btnt"></th>
+                    </tr>
+                    <tbody>
+                      <%= render @course_users %>
+                    </tbody>
+                  <thead>
+                </table>
+                <%= paginate @course_users %>
+                <% if current_user.supervisor? %>
+                  <%= t ".add_trainees" %>
+                  <div class="add-trainee">
+                    <%= form_for [@course, UserCourse.new] do |f| %>
+                      <div class="form-group">
+                        <%= f.hidden_field :course_id, value: @course.id %>
+                        <%= f.select :user_id, @users.pluck(:full_name, :id),
+                          {include_blank: false, include_hidden: false},
+                          {id: "chosen-subject", class: "form-control", multiple: "true"} %>
+                      </div>
+                      <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
