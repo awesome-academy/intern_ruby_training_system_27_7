@@ -8,7 +8,7 @@
   </div>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <%= link_to "#" do %>
+      <%= link_to user_reports_path do %>
         <div class="nav-link">
           <i class="fa fa-history nav-icon"></i>
           <p><%= t ".history_report" %></p>
@@ -16,7 +16,7 @@
       <% end %>
     </li>
     <li class="nav-item">
-      <%= link_to "#" do %>
+      <%= link_to new_user_report_path do %>
         <div class="nav-link">
           <i class="fa fa-check-square nav-icon"></i>
           <p><%= t ".daily_report" %></p>

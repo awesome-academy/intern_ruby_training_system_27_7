@@ -1,0 +1,19 @@
+<%= form_for @user_report do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :course, t(".course") %>
+    <%= f.select :course_id, @courses.pluck(:name, :id),
+     {include_blank: false,  include_hidden: false},
+     {id: "chosen-subject", class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :date, t(".date") %>
+    <%= f.date_field :date,
+      class: "form-control datetimepicker-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, t(".content") %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+<% end %>

@@ -5,8 +5,11 @@ vi:
   success: "Thành công"
   course_deleted: "Xóa khóa học thành công"
   user_course_deleted: "Xóa thành viên khỏi khóa học thành công"
+  user_report_deleted: "Xóa báo cáo thành công"
   delete_fail: "Xóa thất bại"
   not_found: "Không thể tìm thấy"
+  report_not_found: "Không tìm thấy báo cáo"
+  report_invalid: "Không được quyền truy cập vào báo cáo"
   insufficient_privileges: "Bạn không phải admin hoặc người hướng dẫn"
   layouts:
     header:
@@ -91,6 +94,37 @@ vi:
       success: "Thêm thành viên thành công"
       failed: "Thêm thành viên thất bại"
       user_in_course: "Thành viên đã trong khóa học này"
+  user_reports:
+    index:
+      heading: "Lịch sử báo cáo"
+      date: "Ngày"
+      course: "Khóa học"
+      content: "Nội dung"
+    new:
+      heading: "Tạo báo cáo mới"
+      new_report: "Tạo báo cáo mới"
+      no_courses: "Bạn chưa tham gia khóa học nào."
+    show:
+      heading: "Báo cáo"
+      report: "Báo cáo"
+      created_by: "Được tạo bởi:"
+      created_at: "Thời gian:"
+      course: "Khóa học:"
+      content: "Nội dung"
+      sure: "Bạn chắc chắn chứ?"
+    edit:
+      heading: "Chỉnh sửa báo cáo"
+      edit_report: "Chỉnh sửa báo cáo"
+    update:
+      updated_success: "Cập nhật thành công"
+      updated_fail: "Cập nhật thất bại"
+    report_form:
+      course: "Khóa học"
+      date: "Ngày"
+      content: "Nội dung"
+      confirm: "Xác nhận"
+    user_report:
+      sure: "Bạn chắc chắn chứ?"
   activerecord:
     attributes:
       course:

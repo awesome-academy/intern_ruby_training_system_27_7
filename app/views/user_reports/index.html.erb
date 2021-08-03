@@ -1,0 +1,24 @@
+<% provide :title, t(".heading") %>
+
+<section class="content-header">
+  <h1><%= t ".heading" %></h1>
+</section>
+
+<section class="content">
+  <div class="card-body p-0">
+    <table class="table table-striped projects">
+      <thead>
+        <tr>
+          <th class="course-table-name"><%= t ".date" %></th>
+          <th class="course-table-start_time"><%= t ".course" %></th>
+          <th class="course-table-status"><%= t ".content" %></th>
+          <th class="course-table-btnt"></th>
+        </tr>
+        <tbody>
+          <%= render @user_reports %>
+        </tbody>
+      <thead>
+    </table>
+  </div>
+  <%= paginate @user_reports %>
+</section>
