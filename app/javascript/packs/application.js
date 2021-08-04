@@ -40,3 +40,10 @@ $(document).on('turbolinks:load', () => {
     theme: 'bootstrap'
   });
 });
+
+$(document).on('turbolinks:load', () => {
+  $('#chosen-supervisor').select2({
+    allowClear: true,
+    theme: 'bootstrap'
+  });
+});

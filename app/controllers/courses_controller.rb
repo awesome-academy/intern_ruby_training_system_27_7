@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :logged_in_supervisor, only: %i(new create destroy)
   before_action :load_subjects, only: %i(new create show)
   before_action :load_course, only: %i(show destroy)
-  before_action :load_trainees, only: :show
+  before_action :load_trainees, :load_supervisors, only: %i(new create show)
 
   def index
     @courses = Course.page(params[:page]).per Settings.course_index_page
@@ -18,11 +18,11 @@ class CoursesController < ApplicationController
     return render :new unless @course.save
 
     flash[:success] = t "success"
-    render "static_pages/home"
+    redirect_to courses_path
   end
 
   def show
-    @course_subjects = @course.course_subjects.page(params[:page])
+    @course_subjects = @course.course_subjects.order_create.page(params[:page])
                               .per Settings.course_show_page
     @course_users = @course.user_courses.page(params[:page])
                            .per Settings.course_show_page
@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
     else
       flash[:danger] = t "delete_fail"
     end
-    redirect_to courses_url
+    redirect_to courses_path
   end
 
   private
@@ -55,6 +55,10 @@ class CoursesController < ApplicationController
   end
 
   def load_trainees
-    @users = User.get_trainees
+    @trainees = User.trainee.get_name
+  end
+
+  def load_supervisors
+    @supervisors = User.supervisor.get_name
   end
 end

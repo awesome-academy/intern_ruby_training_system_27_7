@@ -60,7 +60,7 @@
           <div class="tab-content">
             <div class="tab-pane active" id="subjects">
               <% if current_user.supervisor? %>
-                  <%= t ".add_subject" %>
+                  <%= t ".add_subjects" %>
                   <div>
                     <%= form_for [@course, CourseSubject.new] do |f| %>
                       <div class="form-group">
@@ -68,7 +68,7 @@
                         <%= f.select :subject_id, @subjects.pluck(:name, :id),
                           {include_blank: false, include_hidden: false},
                           {id: "chosen-subject", class: "form-control",
-                          multiple: "true"} %>
+                            multiple: "true"} %>
                       </div>
                       <%= f.submit t(".confirm"), class: "btn btn-primary" %>
                     <% end %>
@@ -80,6 +80,23 @@
             <div class="tab-pane" id="participants">
               <div class="list-supervisor">
                 <%= t ".supervisor_list", count: @course.supervisor.count %>
+                <table class="table table-striped supervisors">
+                  <thead>
+                    <tr>
+                      <th class="supervisor-table-name"><%= t ".name" %></th>
+                      <th class="supervisor-table-btnt"></th>
+                    </tr>
+                    <tbody>
+                      <%= render partial: "user_courses/supervisor_course",
+                        collection: @course_users, as: :user_course %>
+                    </tbody>
+                  <thead>
+                </table>
+                <% if current_user.supervisor? %>
+                  <%= t ".add_supervisors" %>
+                  <%= render "add_form", user: @supervisors, role: :supervisor %>
+                <% end %>
+                <br>
               </div>
               <div class="list-trainee">
                 <%= t ".trainee_list", count: @course.trainee.count %>
@@ -100,17 +117,7 @@
                 <%= paginate @course_users %>
                 <% if current_user.supervisor? %>
                   <%= t ".add_trainees" %>
-                  <div class="add-trainee">
-                    <%= form_for [@course, UserCourse.new] do |f| %>
-                      <div class="form-group">
-                        <%= f.hidden_field :course_id, value: @course.id %>
-                        <%= f.select :user_id, @users.pluck(:full_name, :id),
-                          {include_blank: false, include_hidden: false},
-                          {id: "chosen-trainee", class: "form-control", multiple: "true"} %>
-                      </div>
-                      <%= f.submit t(".confirm"), class: "btn btn-primary" %>
-                    <% end %>
-                  </div>
+                  <%= render "add_form", user: @trainees, role: :trainee %>
                 <% end %>
               </div>
             </div>
