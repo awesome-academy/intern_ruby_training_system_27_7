@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :courses do
       resources :user_courses, only: %i(create destroy), shallow: true
     end
+    resources :user_reports
   end
 end

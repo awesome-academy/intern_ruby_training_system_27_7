@@ -1,0 +1,59 @@
+<% provide :title, t(".heading") %>
+
+<section class="content container">
+  <div class="card card-info">
+    <div class="card-header">
+      <h3><%= t ".report" %></h3>
+      <%= link_to @user_report, method: :delete, data: {confirm: t(".sure")} do %>
+        <div class="btn btn-danger btn-sm float-right">
+          <i class="fas fa-trash">
+          </i>
+        </div>
+      <% end %>
+      <%= link_to edit_user_report_path(@user_report.id) do %>
+        <div class="btn btn-info btn-sm float-right">
+          <i class="fa fa-pencil-alt">
+          </i>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <table class="table table-borderless report-detail">
+          <tbody>
+            <tr>
+              <td class="report-info">
+                <%= t ".created_by" %>
+              </td>
+              <td>
+                <%= @user_report.user_full_name %>
+              </td>
+            </tr>
+            <tr>
+              <td class="report-info">
+                <%= t ".created_at" %>
+              </td>
+              <td>
+                <%= @user_report.date.strftime Settings.time_format %>
+              </td>
+            </tr>
+            <tr>
+              <td class="report-info">
+                <%= t ".course" %>
+              </td>
+              <td>
+                <%= @user_report.course_name %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col">
+          <h3 class="text-center"><%= t ".content" %></h3>
+        </div>
+        <div class="card card-body">
+          <%= @user_report.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

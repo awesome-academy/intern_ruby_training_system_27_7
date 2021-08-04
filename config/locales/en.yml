@@ -5,8 +5,11 @@ en:
   success: "Success"
   course_deleted: "Deleted course successfully"
   user_course_deleted: "Deleted user from course successfully"
+  user_report_deleted: "Delete report successfully"
   delete_fail: "Failed to delete"
   not_found: "Not found"
+  report_not_found: "Report not found"
+  report_invalid: "Can't not access to report"
   insufficient_privileges: "You are not admin or supervisor"
   layouts:
     header:
@@ -91,6 +94,37 @@ en:
       success: "Add user successfully"
       failed: "Failed to add user"
       user_in_course: "User had been in course"
+  user_reports:
+    index:
+      heading: "History of reports"
+      date: "Date"
+      course: "Course"
+      content: "Content"
+    new:
+      heading: "New report"
+      new_report: "New report"
+      no_courses: "You have no course to report."
+    show:
+      heading: "Report"
+      report: "Report"
+      created_by: "Created by:"
+      created_at: "Created at:"
+      course: "Course:"
+      content: "Content"
+      sure: "Sure?"
+    edit:
+      heading: "Edit report"
+      edit_report: "Edit report"
+    update:
+      updated_success: "Updated successfully"
+      updated_fail: "Updated fail"
+    report_form:
+      course: "Course"
+      date: "Date"
+      content: "Content"
+      confirm: "Confirm"
+    user_report:
+      sure: "Sure?"
   activerecord:
     attributes:
       course:
