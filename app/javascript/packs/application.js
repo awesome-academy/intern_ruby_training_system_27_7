@@ -33,3 +33,10 @@ $(document).on('turbolinks:load', () => {
     theme: 'bootstrap'
   });
 });
+
+$(document).on('turbolinks:load', () => {
+  $('#chosen-trainee').select2({
+    allowClear: true,
+    theme: 'bootstrap'
+  });
+});

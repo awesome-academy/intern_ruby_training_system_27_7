@@ -4,6 +4,7 @@ en:
   please_login: "Please log in."
   success: "Success"
   course_deleted: "Deleted course successfully"
+  course_subject_deleted: "Deleted subject from course successfully"
   user_course_deleted: "Deleted user from course successfully"
   user_report_deleted: "Delete report successfully"
   delete_fail: "Failed to delete"
@@ -82,11 +83,17 @@ en:
       confirm: "Confirm"
       supervisor_list: "List of supervisors (%{count})"
       trainee_list: "List of trainees (%{count})"
+      add_subjects: "Add subjects"
     course:
       sure: "Are you sure ?"
   course_subjects:
+    create:
+      success: "Add subject successfully"
+      failed: "Failed to add subject"
+      subject_in_course: "Subject had been in course"
     course_subject:
       time: "Duration"
+      sure: "Are you sure?"
   user_courses:
     user_course:
       sure: "Sure?"
