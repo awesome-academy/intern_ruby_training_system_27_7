@@ -4,6 +4,7 @@ vi:
   please_login: "Bạn chưa đăng nhập."
   success: "Thành công"
   course_deleted: "Xóa khóa học thành công"
+  course_subject_deleted: "Xóa môn học khỏi khóa học thành công"
   user_course_deleted: "Xóa thành viên khỏi khóa học thành công"
   user_report_deleted: "Xóa báo cáo thành công"
   delete_fail: "Xóa thất bại"
@@ -82,11 +83,17 @@ vi:
       confirm: "Xác nhận"
       supervisor_list: "Danh sách người hướng dẫn (%{count})"
       trainee_list: "Danh sách học viên (%{count})"
+      add_subjects: "Thêm môn học"
     course:
       sure: "Bạn chắc chứ ?"
   course_subjects:
+    create:
+      success: "Thêm môn học thành công"
+      failed: "Thêm môn học thất bại"
+      subject_in_course: "Môn học đã trong khóa học này"
     course_subject:
       time: "Thời gian"
+      sure: "Bạn chắc chắn chứ?"
   user_courses:
     user_course:
       sure: "Bạn chắc chắn chứ?"

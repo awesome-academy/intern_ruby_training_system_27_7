@@ -20,7 +20,7 @@
               <li class="list-group-item">
                 <b><%= t ".start_date" %></b>
                 <div class="float-right">
-                  <%= @course.start_time.strftime("%d/%m/%Y") %>
+                  <%= @course.start_time.strftime Settings.time_format%>
                 </div>
               </li>
               <li class="list-group-item">
@@ -59,6 +59,21 @@
         <div class="card-body">
           <div class="tab-content">
             <div class="tab-pane active" id="subjects">
+              <% if current_user.supervisor? %>
+                  <%= t ".add_subject" %>
+                  <div>
+                    <%= form_for [@course, CourseSubject.new] do |f| %>
+                      <div class="form-group">
+                        <%= f.hidden_field :course_id, value: @course.id %>
+                        <%= f.select :subject_id, @subjects.pluck(:name, :id),
+                          {include_blank: false, include_hidden: false},
+                          {id: "chosen-subject", class: "form-control",
+                          multiple: "true"} %>
+                      </div>
+                      <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                <% end %>
               <%= render @course_subjects %>
               <%= paginate @course_subjects %>
             </div>
@@ -91,7 +106,7 @@
                         <%= f.hidden_field :course_id, value: @course.id %>
                         <%= f.select :user_id, @users.pluck(:full_name, :id),
                           {include_blank: false, include_hidden: false},
-                          {id: "chosen-subject", class: "form-control", multiple: "true"} %>
+                          {id: "chosen-trainee", class: "form-control", multiple: "true"} %>
                       </div>
                       <%= f.submit t(".confirm"), class: "btn btn-primary" %>
                     <% end %>

@@ -17,9 +17,33 @@
             <a href="#"><%= course_subject.subject_name %></a>
             <small>
               <%= t ".time" %>:
-              <%= course_subject.duration.time.strftime("%k:%M") %>
+              <%= course_subject.current_duration.time.strftime Settings.duration_format %>
             </small>
           </h5>
+        </div>
+        <div class="subject-actions">
+          <div class="text-right">
+            <%= link_to course_subject do %>
+              <div class="btn btn-primary btn-sm">
+                <i class="fa fa-eye" aria-hidden="true">
+                </i>
+              </div>
+            <% end %>
+            <% if current_user.supervisor? || current_user.admin? %>
+              <%= link_to course_subject, method: :delete, data: {confirm: t(".sure")} do %>
+                <div class="btn btn-danger btn-sm">
+                  <i class="fas fa-trash">
+                  </i>
+                </div>
+              <% end %>
+              <%= link_to "#" do %>
+                <div class="btn btn-info btn-sm">
+                  <i class="fa fa-pencil-alt">
+                  </i>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

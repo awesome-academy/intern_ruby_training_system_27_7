@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :logged_in_user
   before_action :logged_in_supervisor, only: %i(new create destroy)
-  before_action :load_subjects, only: %i(new create)
+  before_action :load_subjects, only: %i(new create show)
   before_action :load_course, only: %i(show destroy)
   before_action :load_trainees, only: :show
 
@@ -15,9 +15,6 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new course_params
-    @course.course_subjects.each do |c|
-      c.duration = c.subject.duration
-    end
     return render :new unless @course.save
 
     flash[:success] = t "success"

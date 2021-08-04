@@ -6,3 +6,4 @@ valid_email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z
 course_index_page: 10
 course_show_page: 10
 time_format: "%d/%m/%Y"
+duration_format: "%k:%M"
