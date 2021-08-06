@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
-  scope :get_trainees, ->{select(:id, :full_name).where role_id: :trainee}
+  scope :get_name, ->{select(:id, :full_name)}
 
   enum role_id: {admin: 0, supervisor: 1, trainee: 2}
 

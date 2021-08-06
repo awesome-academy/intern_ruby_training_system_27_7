@@ -10,7 +10,9 @@ class CourseSubject < ApplicationRecord
   has_many :user_course_subjects, dependent: :destroy
   has_many :user_courses, through: :user_course_subjects
 
-  after_create :update_user_course
+  after_create :add_course_subject_tasks, :update_user_course
+
+  scope :order_create, ->{order(created_at: :asc)}
 
   def current_duration
     return duration unless duration.nil?
@@ -19,14 +21,21 @@ class CourseSubject < ApplicationRecord
   end
 
   private
+  def add_course_subject_tasks
+    subject.tasks.each do |task|
+      course_subject_tasks.create! name: task.name,
+                                   description: task.description
+    end
+  end
+
   def update_user_course
     course.user_courses.each do |user_course|
+      next unless user_course.trainee?
+
       next if user_course.user_course_subjects
                          .find_by course_subject_id: subject.id
 
-      user_subject = user_course.user_course_subjects
-                                .build course_subject_id: subject.id
-      user_subject.save!
+      user_course.user_course_subjects.create! course_subject_id: id
     end
   end
 end

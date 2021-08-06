@@ -7,11 +7,11 @@ class Course < ApplicationRecord
 
   delegate :admin, :supervisor, :trainee, to: :users
 
+  has_many :course_subjects, dependent: :destroy
+  has_many :subjects, through: :course_subjects
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses
   has_many :user_reports, dependent: :destroy
-  has_many :course_subjects, dependent: :destroy
-  has_many :subjects, through: :course_subjects
 
   accepts_nested_attributes_for :course_subjects, allow_destroy: true
   accepts_nested_attributes_for :user_courses, allow_destroy: true
@@ -20,6 +20,7 @@ class Course < ApplicationRecord
     length: {maximum: Settings.maximum_name_length}, uniqueness: true
   validates :description, presence: true,
     length: {maximum: Settings.maximum_content_length}
+  validates :start_time, presence: true
 
   enum status: {start: 0, inprogress: 1, finished: 2, canceled: 3}
 end

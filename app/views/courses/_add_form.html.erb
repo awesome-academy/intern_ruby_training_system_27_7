@@ -1,0 +1,11 @@
+<div class="add-user">
+  <%= form_for [@course, UserCourse.new] do |f| %>
+    <div class="form-group">
+      <%= f.hidden_field :course_id, value: @course.id %>
+        <%= f.select :user_id, user.pluck(:full_name, :id),
+          {include_blank: false, include_hidden: false},
+          {id: "chosen-#{role}", class: "form-control", multiple: "true"} %>
+    </div>
+  <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+  <% end %>
+</div>

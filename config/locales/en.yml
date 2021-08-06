@@ -80,12 +80,15 @@ en:
       participants: "Participants"
       name: "Name"
       add_trainees: "Add trainees"
+      add_supervisors: "Add supervisors"
       confirm: "Confirm"
       supervisor_list: "List of supervisors (%{count})"
       trainee_list: "List of trainees (%{count})"
       add_subjects: "Add subjects"
     course:
       sure: "Are you sure ?"
+    add_form:
+      confirm: "Confirm"
   course_subjects:
     create:
       success: "Add subject successfully"
@@ -96,6 +99,8 @@ en:
       sure: "Are you sure?"
   user_courses:
     user_course:
+      sure: "Sure?"
+    supervisor_course:
       sure: "Sure?"
     create:
       success: "Add user successfully"
@@ -139,6 +144,7 @@ en:
         description: "Description"
         start_time: "Start time"
         subjects: "Subjects"
+        trainees: "Trainees"
   views:
     pagination:
       first: "« FIRST"

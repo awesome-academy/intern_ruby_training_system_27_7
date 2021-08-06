@@ -15,5 +15,17 @@ class UserCourse < ApplicationRecord
 
   accepts_nested_attributes_for :user_course_subjects, allow_destroy: true
 
+  after_create :add_user_course_subjects
+
   enum status: {start: 0, inprogress: 1, finished: 2, canceled: 3}
+
+  def add_user_course_subjects
+    return unless trainee?
+
+    co_subs = course.course_subjects
+    co_subs.each do |co_sub|
+      user_course_subjects.create! course_subject_id: co_sub.id,
+                                      start_time: Time.current
+    end
+  end
 end

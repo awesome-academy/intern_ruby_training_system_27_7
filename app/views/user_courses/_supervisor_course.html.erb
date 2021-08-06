@@ -1,22 +1,18 @@
+<% if user_course.supervisor? %>
 <tr>
   <td>
-    <%= link_to course.name, course %>
-  </td>
-  <td>
-    <%= course.start_time.strftime Settings.time_format %>
-  </td>
-  <td>
-    <%= course.status %>
+    <%= link_to user_course.user_full_name, "#" %>
   </td>
   <td class="project-actions text-right">
-    <%= link_to course do %>
+    <%= link_to "#" do %>
       <div class="btn btn-primary btn-sm">
         <i class="fa fa-eye" aria-hidden="true">
         </i>
       </div>
     <% end %>
-    <% if current_user.supervisor? || current_user.admin? %>
-      <%= link_to course, method: :delete, data: {confirm: t(".sure")} do %>
+    <% if current_user != user_course.user &&
+      current_user.supervisor? || current_user.admin? %>
+      <%= link_to user_course, method: :delete, data: {confirm: t(".sure")} do %>
         <div class="btn btn-danger btn-sm">
           <i class="fas fa-trash">
           </i>
@@ -31,3 +27,4 @@
     <% end %>
   </td>
 </tr>
+<% end %>

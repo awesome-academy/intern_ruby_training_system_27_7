@@ -80,12 +80,15 @@ vi:
       participants: "Người tham gia"
       name: "Tên"
       add_trainees: "Thêm học viên"
+      add_supervisors: "Thêm người hướng dẫn"
       confirm: "Xác nhận"
       supervisor_list: "Danh sách người hướng dẫn (%{count})"
       trainee_list: "Danh sách học viên (%{count})"
       add_subjects: "Thêm môn học"
     course:
       sure: "Bạn chắc chứ ?"
+    add_form:
+      confirm: "Xác nhận"
   course_subjects:
     create:
       success: "Thêm môn học thành công"
@@ -96,6 +99,8 @@ vi:
       sure: "Bạn chắc chắn chứ?"
   user_courses:
     user_course:
+      sure: "Bạn chắc chắn chứ?"
+    supervisor_course:
       sure: "Bạn chắc chắn chứ?"
     create:
       success: "Thêm thành viên thành công"
@@ -139,6 +144,7 @@ vi:
         description: "Mô tả khóa học"
         start_time: "Thời gian bắt đầu"
         subjects: "Môn học"
+        trainees: "Học viên"
   views:
     pagination:
       first: "« ĐẦU"
