@@ -1,7 +1,13 @@
 class UserCoursesController < ApplicationController
   before_action :logged_in_user
-  before_action :logged_in_supervisor
-  before_action :load_user_course, only: :destroy
+  before_action :logged_in_supervisor, except: %i(index show)
+  before_action :correct_user, except: %i(index show)
+  before_action :load_user_course, only: %i(show destroy)
+
+  def index
+    @user_courses = current_user.user_courses.page(params[:page])
+                                .per Settings.course_index_page
+  end
 
   def create
     params = user_course_params
@@ -17,6 +23,15 @@ class UserCoursesController < ApplicationController
     end
 
     redirect_back fallback_location: courses_url
+  end
+
+  def show
+    @user_subjects = @user_course.user_course_subjects
+                                 .order_by(:created_at, :asc)
+                                 .page(params[:page])
+                                 .per Settings.course_show_page
+    @course_users = @user_course.course.user_courses.page(params[:page])
+                                .per Settings.course_show_page
   end
 
   def destroy

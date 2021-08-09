@@ -106,6 +106,28 @@ en:
       success: "Add user successfully"
       failed: "Failed to add user"
       user_in_course: "User had been in course"
+    index:
+      heading: "My course"
+    show:
+      start_date: "Start date"
+      status: "Status"
+      subjects: "Subjects"
+      participants: "Participants"
+      name: "Name"
+      user_name: "User's name"
+      add_trainees: "Add trainees"
+      add_supervisors: "Add supervisors"
+      confirm: "Confirm"
+      supervisor_list: "List of supervisors (%{count})"
+      trainee_list: "List of trainees (%{count})"
+      add_subjects: "Add subjects"
+    user_subject:
+      time: "Time"
+      not_start: "Subject has not started yet"
+      day: "days"
+      sure: "Are you sure?"
+    my_course:
+      last_updated: "Last Updated"
   user_reports:
     index:
       heading: "History of reports"

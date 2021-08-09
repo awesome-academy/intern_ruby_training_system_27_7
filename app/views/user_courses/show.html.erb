@@ -1,0 +1,119 @@
+<% provide :title, @user_course.course_name %>
+
+<section class="content-header">
+  <h1><%= @user_course.course_name %></h1>
+</section>
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-primary card-outline">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <%= image_tag("vietnam.jpg", class: "img-fluid img-square",
+              alt: "Course picture") %>
+            </div>
+            <h3 class="profile-username text-center">
+              <%= @user_course.course_name %>
+            </h3>
+            <p class="text-muted text-center">
+              <%= @user_course.course_description %>
+            </p>
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b><%= t ".username" %></b>
+                <div class="float-right">
+                  <%= @user_course.user_full_name %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b><%= t ".start_date" %></b>
+                <div class="float-right">
+                  <%= @user_course.course_start_time.strftime Settings.time_format %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b><%= t ".status" %></b>
+                <div class="float-right"><%= @user_course.status %></div>
+              </li>
+              <li class="list-group-item">
+                <b><%= t ".subjects" %></b>
+                <div class="float-right">
+                  <%= @user_course.user_course_subjects.count %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b><%= t ".participants" %></b>
+                <div class="float-right">
+                  <%= @user_course.course_users.count %></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+      <div class="card">
+        <div class="card-header p-2">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="#subjects" data-toggle="tab">
+                <%= t ".subjects" %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#participants" data-toggle="tab">
+                <%= t ".participants" %>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content">
+            <div class="tab-pane active" id="subjects">
+              <%= render partial: "user_courses/user_subject",
+                        collection: @user_subjects, as: :user_subject %>
+              <%= paginate @user_subjects %>
+            </div>
+            <div class="tab-pane" id="participants">
+              <div class="list-supervisor">
+                <%= t ".supervisor_list", count: @user_course.course_supervisor.count %>
+                <table class="table table-striped supervisors">
+                  <thead>
+                    <tr>
+                      <th class="supervisor-table-name"><%= t ".name" %></th>
+                      <th class="supervisor-table-btnt"></th>
+                    </tr>
+                    <tbody>
+                      <%= render partial: "user_courses/supervisor_course",
+                        collection: @course_users, as: :user_course %>
+                    </tbody>
+                  <thead>
+                </table>
+                <br>
+              </div>
+              <div class="list-trainee">
+                <%= t ".trainee_list", count: @user_course.course_trainee.count %>
+                <table class="table table-striped trainees">
+                  <thead>
+                    <tr>
+                      <th class="trainee-table-name"><%= t ".name" %></th>
+                      <th class="trainee-table-start_time">
+                        <%= t ".start_date" %></th>
+                      <th class="trainee-table-status"><%= t ".status" %></th>
+                      <th class="trainee-table-btnt"></th>
+                    </tr>
+                    <tbody>
+                      <%= render partial: "user_courses/user_course",
+                        collection: @course_users, as: :user_course %>
+                    </tbody>
+                  <thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

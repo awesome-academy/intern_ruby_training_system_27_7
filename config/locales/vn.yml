@@ -106,6 +106,24 @@ vi:
       success: "Thêm thành viên thành công"
       failed: "Thêm thành viên thất bại"
       user_in_course: "Thành viên đã trong khóa học này"
+    index:
+      heading: "Khóa học của tôi"
+    show:
+      start_date: "Ngày bắt đầu"
+      status: "Trạng thái"
+      subjects: "Môn học"
+      user_name: "Tên người dùng"
+      participants: "Người tham gia"
+      name: "Tên"
+      supervisor_list: "Danh sách người hướng dẫn (%{count})"
+      trainee_list: "Danh sách học viên (%{count})"
+    user_subject:
+      time: "Thời gian"
+      not_start: "Môn học chưa bắt đầu"
+      day: "ngày"
+      sure: "Bạn chắc chắn chứ?"
+    my_course:
+      last_updated: "Lần cuối cập nhật"
   user_reports:
     index:
       heading: "Lịch sử báo cáo"
