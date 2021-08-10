@@ -32,6 +32,8 @@ class CourseSubject < ApplicationRecord
     course.user_courses.each do |user_course|
       next unless user_course.trainee?
 
+      next if user_course.new_record?
+
       next if user_course.user_course_subjects
                          .find_by course_subject_id: subject.id
 

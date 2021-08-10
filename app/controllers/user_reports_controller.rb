@@ -5,7 +5,8 @@ class UserReportsController < ApplicationController
   before_action :load_course, except: %i(index show destroy)
 
   def index
-    @user_reports = current_user.user_reports.recent.page(params[:page])
+    @user_reports = current_user.user_reports
+                                .includes(:course).recent.page(params[:page])
                                 .per Settings.course_index_page
   end
 

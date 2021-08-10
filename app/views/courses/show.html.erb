@@ -60,20 +60,20 @@
           <div class="tab-content">
             <div class="tab-pane active" id="subjects">
               <% if current_user.supervisor? %>
-                  <%= t ".add_subjects" %>
-                  <div>
-                    <%= form_for [@course, CourseSubject.new] do |f| %>
-                      <div class="form-group">
-                        <%= f.hidden_field :course_id, value: @course.id %>
-                        <%= f.select :subject_id, @subjects.pluck(:name, :id),
-                          {include_blank: false, include_hidden: false},
-                          {id: "chosen-subject", class: "form-control",
-                            multiple: "true"} %>
-                      </div>
-                      <%= f.submit t(".confirm"), class: "btn btn-primary" %>
-                    <% end %>
-                  </div>
-                <% end %>
+                <%= t ".add_subjects" %>
+                <div>
+                  <%= form_for [@course, CourseSubject.new] do |f| %>
+                    <div class="form-group">
+                      <%= f.hidden_field :course_id, value: @course.id %>
+                      <%= f.select :subject_id, @subjects.pluck(:name, :id),
+                        {include_blank: false, include_hidden: false},
+                        {id: "chosen-subject", class: "form-control",
+                          multiple: "true"} %>
+                    </div>
+                    <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              <% end %>
               <%= render @course_subjects %>
               <%= paginate @course_subjects %>
             </div>

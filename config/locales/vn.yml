@@ -5,6 +5,7 @@ vi:
   success: "Thành công"
   course_deleted: "Xóa khóa học thành công"
   course_subject_deleted: "Xóa môn học khỏi khóa học thành công"
+  course_subject_task_deleted: "Xóa nhiệm vụ khỏi môn học thành công"
   user_course_deleted: "Xóa thành viên khỏi khóa học thành công"
   user_report_deleted: "Xóa báo cáo thành công"
   delete_fail: "Xóa thất bại"
@@ -90,12 +91,30 @@ vi:
     add_form:
       confirm: "Xác nhận"
   course_subjects:
+    show:
+      header: "%{name} (Thời gian: %{time})"
+      tasks: "Nhiệm vụ"
+      start_date: "Ngày bắt đầu"
+      status: "Trạng thái"
+      subjects: "Môn học"
+      participants: "Người tham gia"
+      task_list: "Danh sách nhiệm vụ (%{count})"
+      add_tasks: "Thêm nhiệm vụ"
+      name: "Tên nhiệm vụ"
+      description: "Mô tả"
+      confirm: "Xác nhận"
     create:
       success: "Thêm môn học thành công"
       failed: "Thêm môn học thất bại"
       subject_in_course: "Môn học đã trong khóa học này"
     course_subject:
       time: "Thời gian"
+      sure: "Bạn chắc chắn chứ?"
+  course_subject_tasks:
+    create:
+      created_successfully: "Tạo nhiệm vụ thành công"
+      created_failed: "Tạo nhiệm vụ thất bại"
+    course_subject_task:
       sure: "Bạn chắc chắn chứ?"
   user_courses:
     user_course:

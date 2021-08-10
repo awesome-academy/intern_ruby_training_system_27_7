@@ -5,6 +5,7 @@ en:
   success: "Success"
   course_deleted: "Deleted course successfully"
   course_subject_deleted: "Deleted subject from course successfully"
+  course_subject_task_deleted: "Deleted task in subject successfully"
   user_course_deleted: "Deleted user from course successfully"
   user_report_deleted: "Delete report successfully"
   delete_fail: "Failed to delete"
@@ -90,6 +91,18 @@ en:
     add_form:
       confirm: "Confirm"
   course_subjects:
+    show:
+      header: "%{name} (Time: %{time})"
+      tasks: "Tasks"
+      start_date: "Start date"
+      status: "Status"
+      subjects: "Subjects"
+      participants: "Participants"
+      task_list: "List of tasks (%{count})"
+      add_tasks: "Add tasks"
+      name: "Name"
+      description: "Description"
+      confirm: "Confirm"
     create:
       success: "Add subject successfully"
       failed: "Failed to add subject"
@@ -97,6 +110,12 @@ en:
     course_subject:
       time: "Duration"
       sure: "Are you sure?"
+  course_subject_tasks:
+    create:
+      created_successfully: "Created task successfully"
+      created_failed: "Created task failed"
+    course_subject_task:
+      sure: "Sure?"
   user_courses:
     user_course:
       sure: "Sure?"
