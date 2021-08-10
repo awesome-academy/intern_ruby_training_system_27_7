@@ -45,3 +45,42 @@ img[alt*="subject_logo"]{
   float: right;
   padding-top: 3%;
 }
+
+.mycourse-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px
+}
+
+.mycourse-item {
+  margin-bottom: 20px
+}
+
+.mycourse-wrapper {
+  border: 1px solid #dfdfdf;
+  border-radius: 3px;
+  overflow: hidden;
+  padding-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 2px 2px 14px lightgrey;
+}
+
+.mycourse-img {
+  position: relative;
+  background-size: cover;
+  transition: all 220ms ease-in;
+}
+
+.mycourse-content {
+  padding: 0 15px
+}
+
+.mycourse-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  padding: 0 15px;
+}

@@ -6,8 +6,8 @@ class UserCourse < ApplicationRecord
 
   delegate :admin, :admin?, to: :user
   delegate :full_name, to: :user, prefix: true
-  delegate :name, to: :course, prefix: true
-  delegate :start_time, to: :course
+  delegate :name, :description, :supervisor, :trainee, :users, :start_time,
+           to: :course, prefix: true
   delegate :supervisor, :supervisor?, :trainee, :trainee?, to: :user
 
   has_many :user_course_subjects, dependent: :destroy

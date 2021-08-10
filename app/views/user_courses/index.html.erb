@@ -1,0 +1,15 @@
+<% provide :title, t(".heading") %>
+
+<section class="content-header">
+  <h1><%= t ".heading" %></h1>
+</section>
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="mycourse-row mt-3">
+      <%= render partial: "user_courses/my_course", collection: @user_courses,
+        as: :user_course %>
+    </div>
+  </div>
+  <%= paginate @user_courses %>
+</section>
