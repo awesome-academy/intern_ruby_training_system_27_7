@@ -1,5 +1,5 @@
 class UserReport < ApplicationRecord
-  USER_REPORT_PARAMS = [:user_id, :course_id, :content, :date].freeze
+  USER_REPORT_PARAMS = %i(user_id course_id content date).freeze
 
   belongs_to :user
   belongs_to :course

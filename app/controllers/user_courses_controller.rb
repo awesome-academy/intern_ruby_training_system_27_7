@@ -5,7 +5,8 @@ class UserCoursesController < ApplicationController
   before_action :load_user_course, only: %i(show destroy)
 
   def index
-    @user_courses = current_user.user_courses.page(params[:page])
+    @user_courses = current_user.user_courses.includes(:course)
+                                .page(params[:page])
                                 .per Settings.course_index_page
   end
 
@@ -27,10 +28,12 @@ class UserCoursesController < ApplicationController
 
   def show
     @user_subjects = @user_course.user_course_subjects
+                                 .includes(course_subject: :subject)
                                  .order_by(:created_at, :asc)
                                  .page(params[:page])
                                  .per Settings.course_show_page
-    @course_users = @user_course.course.user_courses.page(params[:page])
+    @course_users = @user_course.course.user_courses
+                                .includes(:user).page(params[:page])
                                 .per Settings.course_show_page
   end
 

@@ -36,6 +36,7 @@
           <%= f.select :user_ids, @trainees.pluck(:full_name, :id),
             {include_hidden: false},
             {id: "chosen-trainee", class: "form-control", multiple: "true"} %>
+        </div>
         <%= f.submit t(".confirm"), class: "btn btn-primary" %>
       <% end %>
     </div>

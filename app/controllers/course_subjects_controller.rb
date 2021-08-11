@@ -1,7 +1,11 @@
 class CourseSubjectsController < ApplicationController
   before_action :logged_in_user
   before_action :logged_in_supervisor
-  before_action :load_course_subjects, only: :destroy
+  before_action :load_course_subjects, only: %i(show destroy)
+
+  def show
+    @course = @course_subject.course
+  end
 
   def create
     params = course_subjects_params

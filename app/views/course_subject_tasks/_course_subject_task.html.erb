@@ -7,30 +7,18 @@
             alt: "subject_logo") %>
         </div>
         <div class="subject-info">
-          <div class="text-success">
-            <button class="btn btn-sm btn-warning text-white">
-            <i class="fa fa-clock"></i>
-             <i class="fa fa-long-arrow-right"></i>
-            </button>
-          </div>
           <h5 class="card-title text-success">
-            <%= link_to course_subject.subject_name, [@course, course_subject] %>
-            <small>
-              <%= t ".time" %>:
-              <%= course_subject.current_duration.time.strftime Settings.duration_format %>
-            </small>
+            <%= link_to course_subject_task.name, "#" %>
           </h5>
+          <br>
+          <p class="card-title text-success">
+            <%= course_subject_task.description %>
+          </p>
         </div>
         <div class="subject-actions">
           <div class="text-right">
-            <%= link_to [@course, course_subject] do %>
-              <div class="btn btn-primary btn-sm">
-                <i class="fa fa-eye" aria-hidden="true">
-                </i>
-              </div>
-            <% end %>
             <% if current_user.supervisor? || current_user.admin? %>
-              <%= link_to course_subject, method: :delete, data: {confirm: t(".sure")} do %>
+              <%= link_to course_subject_task, method: :delete,  data: {confirm: t(".sure")} do %>
                 <div class="btn btn-danger btn-sm">
                   <i class="fas fa-trash">
                   </i>

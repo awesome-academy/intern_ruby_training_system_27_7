@@ -1,0 +1,94 @@
+<% provide :title, @course_subject.subject_name %>
+
+<section class="content-header">
+  <h1><%= t ".header", name: @course_subject.subject_name,
+        time: @course_subject.current_duration
+          .time.strftime(Settings.duration_format) %>
+  </h1>
+</section>
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-primary card-outline">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <%= image_tag("vietnam.jpg", class: "img-fluid img-square",
+                alt: "Course picture") %>
+            </div>
+            <h3 class="profile-username text-center"><%= @course.name %></h3>
+            <p class="text-muted text-center"><%= @course.description %></p>
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b><%= t ".start_date" %></b>
+                <div class="float-right">
+                  <%= @course.start_time.strftime Settings.time_format %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b><%= t ".status" %></b>
+                <div class="float-right"><%= @course.status %></div>
+              </li>
+              <li class="list-group-item">
+                <b><%= t ".subjects" %></b>
+                <div class="float-right"><%= @course.course_subjects.count %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b><%= t ".participants" %></b>
+                <div class="float-right"><%= @course.user_courses.count %></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+      <div class="card">
+        <div class="card-header p-2">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="#tasks" data-toggle="tab">
+                <%= t ".tasks" %>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content">
+            <div class="tab-pane active" id="tasks">
+              <div class="list-task">
+                <h3><%= t ".task_list", count: @course_subject
+                      .course_subject_tasks.count %></h3>
+                <br>
+                <%= render @course_subject.course_subject_tasks %>
+              </div>
+              <div class="add-tasks">
+                <% if current_user.supervisor? %>
+                  <h3><%= t ".add_tasks" %></h3>
+                  <div>
+                    <%= form_for [@course_subject, CourseSubjectTask.new] do |f| %>
+                      <div class="form-group">
+                        <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
+                        <div class="form-group">
+                          <%= f.label :name, t(".name") %>
+                          <%= f.text_field :name, class: "form-control" %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.label :description, t(".description") %>
+                          <%= f.text_area :description, class: "form-control" %>
+                        </div>
+                      </div>
+                      <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
