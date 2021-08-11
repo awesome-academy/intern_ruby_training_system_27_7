@@ -49,6 +49,19 @@
                   <%= @user_course.course_users.count %></div>
               </li>
             </ul>
+            <% if @user_course.start? %>
+              <%= link_to user_course_path(@user_course, status: "finished"),
+                method: :patch, data: {confirm: t(".sure_finish")} do %>
+                <div class="btn btn-success btn-block"><%= t ".finish_course" %>
+                </div>
+              <% end %>
+              <br>
+              <%= link_to user_course_path(@user_course, status: "canceled"),
+                method: :patch, data: {confirm: t(".sure_cancel")} do %>
+                <div class="btn btn-danger btn-block"><%= t ".cancel_course" %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

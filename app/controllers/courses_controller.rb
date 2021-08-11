@@ -47,7 +47,7 @@ class CoursesController < ApplicationController
   end
 
   def load_course
-    @course = Course.includes(:subjects, :users).find_by id: params[:id]
+    @course = Course.includes(Course::COURSE_INCLUDES).find_by id: params[:id]
     return if @course
 
     flash[:danger] = t "insufficient_privileges"

@@ -13,6 +13,10 @@ en:
   report_not_found: "Report not found"
   report_invalid: "Can't not access to report"
   insufficient_privileges: "You are not admin or supervisor"
+  wrong_user: "Wrong user"
+  course_canceled: "Course canceled"
+  subject_must_inprogress: "Subject must inprogress"
+  course_must_start: "Course must start"
   layouts:
     header:
       en: "English"
@@ -140,6 +144,14 @@ en:
       supervisor_list: "List of supervisors (%{count})"
       trainee_list: "List of trainees (%{count})"
       add_subjects: "Add subjects"
+      sure_finish: "Do you want to finish?"
+      sure_cancel: "Do you want to cancel?"
+      finish_course: "Finish course"
+      cancel_course: "Cancel course"
+    update:
+      success: "End course successfully"
+      fail: "Failed to end course"
+      unfinish: "You haven't finish all subjects yet"
     user_subject:
       time: "Time"
       not_start: "Subject has not started yet"
@@ -147,6 +159,21 @@ en:
       sure: "Are you sure?"
     my_course:
       last_updated: "Last Updated"
+    status_bar:
+      start: "Start"
+      inprogress: "Inprogress"
+      finish_subject: "Finish subject"
+      cancel_subject: "Cancel subject"
+      finished: "Finished"
+      canceled: "Canceled"
+      sure_start: "Do you want to start?"
+      sure_finish: "Do you want to finish?"
+      sure_cancel: "Do you want to cancel this subject (cancel this course)"
+  user_course_subjects:
+    update:
+      success : "Update subject successfully"
+      fail: "Failed to update subject"
+      first_subject: "Not finish previous subject yet"
   user_reports:
     index:
       heading: "History of reports"

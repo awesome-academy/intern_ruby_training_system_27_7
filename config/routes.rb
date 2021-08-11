@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :course_subject_tasks, only: :destroy, shallow: true
     end
     resources :user_courses
+    resources :user_course_subjects, only: :update
     resources :user_reports
   end
 end

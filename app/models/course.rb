@@ -5,6 +5,11 @@ class Course < ApplicationRecord
     user_ids: [],
     user_courses_attributes: [:id, :user_id, :course_id]].freeze
 
+  COURSE_INCLUDES = [:subjects, :users, course_subjects:
+    [{course_subject_tasks: :user_tasks},
+    {user_course_subjects: :user_tasks}], user_courses:
+    {user_course_subjects: :user_tasks}].freeze
+
   delegate :admin, :supervisor, :trainee, to: :users
 
   has_many :course_subjects, dependent: :destroy
