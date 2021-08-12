@@ -17,6 +17,7 @@ en:
   course_canceled: "Course canceled"
   subject_must_inprogress: "Subject must inprogress"
   course_must_start: "Course must start"
+  incorrect_user: "You are not permit to access"
   layouts:
     header:
       en: "English"
@@ -43,6 +44,7 @@ en:
       user: "All users"
       all_supervisors: "All supervisors"
       all_trainees: "All trainees"
+      new_trainees: "New trainees"
     subject:
       subjects: "Subjects"
       all_subject: "All subjects"
@@ -204,6 +206,48 @@ en:
       content: "Content"
       confirm: "Confirm"
     user_report:
+      sure: "Sure?"
+  users:
+    user_form:
+      full_name: "Full name"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+    show:
+      heading: "User information"
+      user_information: "User information"
+      full_name: "Full name"
+      email: "Email"
+      time: "Time"
+    edit:
+      heading: "Edit user information"
+      edit_user_information: "Edit user information"
+      save_changes: "Update"
+    update:
+      updated_successfully: "Update profile successfully"
+      updated_failed: "Update profile failed"
+  trainees:
+    index:
+      heading: "List of trainees"
+      trainee_name: "Trainee name"
+      email: "Email"
+    new:
+      heading: "New trainee"
+      new_trainee: "New trainee"
+      create: "Create trainee"
+    create:
+      created_successfully: "Create trainee successfully"
+      created_failed: "Create trainee failed"
+    edit:
+      heading: "Edit trainee"
+      edit_trainee: "Edit trainee"
+      save_changes: "Update"
+    update:
+      updated_successfully: "Update trainee successfully"
+      updated_failed: "Update trainee failed"
+    destroy:
+      destroy_successfully: "Delete trainee successfully"
+      destroy_failed: "Delete trainee failed"
+    trainee:
       sure: "Sure?"
   activerecord:
     attributes:

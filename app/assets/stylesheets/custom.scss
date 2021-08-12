@@ -94,3 +94,8 @@ img[alt*="subject_logo"]{
   color: $red;
   border-color: $red;
 }
+
+.required:after {
+    content: " *";
+    color: $red;
+}

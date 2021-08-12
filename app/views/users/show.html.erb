@@ -1,0 +1,47 @@
+<% provide :title, t(".heading") %>
+
+<section class="content container">
+  <div class="card card-info">
+    <div class="card-header">
+      <h3><%= t ".user_information" %></h3>
+      <%= link_to edit_user_path(@user) do %>
+        <div class="btn btn-info btn-sm float-right">
+          <i class="fa fa-pencil-alt">
+          </i>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <table class="table table-borderless user-detail">
+          <tbody>
+            <tr>
+              <td class="user-info">
+                <%= t ".full_name" %>
+              </td>
+              <td>
+                <%= @user.full_name %>
+              </td>
+            </tr>
+            <tr>
+              <td class="user-info">
+                <%= t ".email" %>
+              </td>
+              <td>
+                <%= @user.email %>
+              </td>
+            </tr>
+            <tr>
+              <td class="report-info">
+                <%= t ".time" %>
+              </td>
+              <td>
+                <%= @user.created_at.strftime Settings.time_format %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

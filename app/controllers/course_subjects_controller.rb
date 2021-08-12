@@ -9,7 +9,7 @@ class CourseSubjectsController < ApplicationController
 
   def create
     params = course_subjects_params
-    @course = Course.find_by id: params[:course_id]
+    @course = Course.includes(:users, :subjects).find_by id: params[:course_id]
 
     begin
       if @course && @course.subjects << Subject.find(params[:subject_id])

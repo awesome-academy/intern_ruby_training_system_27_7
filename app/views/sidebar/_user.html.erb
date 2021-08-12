@@ -9,10 +9,18 @@
   <ul class="nav nav-treeview">
     <% if current_user.admin? || current_user.supervisor? %>
       <li class="nav-item">
-        <%= link_to "#" do %>
+        <%= link_to trainees_path do %>
           <div class="nav-link">
             <i class="fa fa-th-list nav-icon"></i>
             <p><%= t ".all_trainees" %></p>
+          </div>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_trainee_path do %>
+          <div class="nav-link">
+            <i class="fa fa-th-list nav-icon"></i>
+            <p><%= t ".new_trainees" %></p>
           </div>
         <% end %>
       </li>
