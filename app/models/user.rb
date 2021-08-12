@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  TRAINEE_PARAMS = %i(email full_name password password_confirmation).freeze
+  USER_PARAMS = %i(email full_name password password_confirmation).freeze
+  USER_INCLUDES = [user_courses: {user_course_subjects: :user_tasks}].freeze
+
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
   has_many :user_reports, dependent: :destroy

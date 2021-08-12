@@ -1,0 +1,23 @@
+<% provide :title, t(".heading") %>
+
+<section class="content-header">
+  <h1><%= t ".heading" %></h1>
+</section>
+
+<section class="content">
+  <div class="card-body p-0">
+    <table class="table table-striped projects">
+      <thead>
+        <tr>
+          <th class="course-table-name"><%= t ".trainee_name" %></th>
+          <th class="course-table-start_time"><%= t ".email" %></th>
+          <th class="course-table-btnt"></th>
+        </tr>
+        <tbody>
+          <%= render partial: "trainees/trainee", collection: @trainees, as: :trainee %>
+        </tbody>
+      <thead>
+    </table>
+  </div>
+  <%= paginate @trainees %>
+</section>

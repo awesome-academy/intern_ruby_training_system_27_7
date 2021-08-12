@@ -1,0 +1,33 @@
+<%= form_for user, url: path do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :email, class: "required" %>
+    <% if user.new_record? %>
+      <%= f.email_field :email, class: "form-control" %>
+    <% else %>
+      <%= f.email_field :email, class: "form-control", disabled: true %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :full_name, t(".full_name"), class: "required" %>
+    <%= f.text_field :full_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <% if user.new_record? %>
+      <%= f.label :password, t(".password"), class: "required" %>
+    <% else %>
+      <%= f.label :password, t(".password") %>
+    <% end %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <% if user.new_record? %>
+      <%= f.label :password_confirmation, t(".password_confirmation"),
+        class: "required" %>
+    <% else %>
+      <%= f.label :password_confirmation, t(".password_confirmation") %>
+    <% end %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

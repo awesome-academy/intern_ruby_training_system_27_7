@@ -17,6 +17,7 @@ vi:
   course_canceled: "Khóa học đã dừng"
   subject_must_inprogress: "Môn học phải đang trong qúa trình học"
   course_must_start: "Khóa học phải được bắt đầu"
+  incorrect_user: "Bạn không có quyền truy cập"
   layouts:
     header:
       en: "Tiếng Anh"
@@ -43,6 +44,7 @@ vi:
       user: "Danh sách thành viên"
       all_supervisors: "Danh sách người hướng dẫn"
       all_trainees: "Danh sách học viên"
+      new_trainees: "Tạo mới học viên"
     subject:
       subjects: "Môn học"
       all_subject: "Toàn bộ môn học"
@@ -200,6 +202,48 @@ vi:
       content: "Nội dung"
       confirm: "Xác nhận"
     user_report:
+      sure: "Bạn chắc chắn chứ?"
+  users:
+    user_form:
+      full_name: "Họ và tên"
+      password: "Mật khẩu"
+      password_confirmation: "Xác nhận mật khẩu"
+    show:
+      heading: "Thông tin cá nhân"
+      user_information: "Thông tin cá nhân"
+      full_name: "Họ và tên"
+      email: "Email"
+      time: "Gia nhập vào"
+    edit:
+      heading: "Chỉnh sửa thông tin cá nhân"
+      edit_user_information: "Chỉnh sửa thông tin cá nhân"
+      save_changes: "Cập nhật"
+    update:
+      updated_successfully: "Cập nhật hồ sơ thành công"
+      updated_failed: "Cập nhật hồ sơ thất bại"
+  trainees:
+    index:
+      heading: "Danh sách học viên"
+      trainee_name: "Tên học viên"
+      email: "Email"
+    new:
+      heading: "Tạo học viên"
+      new_trainee: "Thêm học viên"
+      create: "Tạo học viên"
+    create:
+      created_successfully: "Tạo học viên thành công"
+      created_failed: "Tạo học viên thất bại"
+    edit:
+      heading: "Chỉnh sửa thông tin học viên"
+      edit_trainee: "Chỉnh sửa thông tin học viên"
+      save_changes: "Cập nhật"
+    update:
+      updated_successfully: "Cập nhật thông tin học viên thành công"
+      updated_failed: "Cập nhật thông tin học viên thất bại"
+    destroy:
+      destroy_successfully: "Xóa học viên thành công"
+      destroy_failed: "Xóa học viên thất bại"
+    trainee:
       sure: "Bạn chắc chắn chứ?"
   activerecord:
     attributes:

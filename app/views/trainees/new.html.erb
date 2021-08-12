@@ -1,0 +1,17 @@
+<% provide :title, t(".heading") %>
+<% provide :button_text, t(".create") %>
+
+<section class="content-header">
+  <h1><%= t ".heading" %></h1>
+</section>
+
+<section class="content container">
+  <div class="card card-info">
+    <div class="card-header">
+      <h3><%= t ".new_trainee" %></h3>
+    </div>
+    <div class="card-body">
+      <%= render "users/user_form", user: @trainee, path: trainees_path %>
+    </div>
+  </div>
+</section>
