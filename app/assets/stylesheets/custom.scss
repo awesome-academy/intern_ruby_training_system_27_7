@@ -84,3 +84,13 @@ img[alt*="subject_logo"]{
   padding-top: 10px;
   padding: 0 15px;
 }
+
+.btn.btn-success-outline {
+  color: $light-green;
+  border-color: $light-green;
+}
+
+.btn.btn-fail-outline {
+  color: $red;
+  border-color: $red;
+}

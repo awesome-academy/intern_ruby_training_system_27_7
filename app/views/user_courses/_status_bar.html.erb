@@ -1,0 +1,26 @@
+<% if subject.start? %>
+  <%= link_to user_course_subject_path(subject, status: "inprogress"),
+      method: :patch, data: {confirm: t(".sure_start")} do %>
+      <div class="btn btn-success-outline w-100"><%= t ".start" %></div>
+  <% end %>
+<% elsif subject.inprogress? %>
+  <div class="btn btn-success-outline w-100 dropdown-toggle"
+    id="dropdownInprogress" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="false">
+    <%= t ".inprogress" %>
+  </div>
+  <div class="dropdown-menu" aria-labelledby="dropdownInprogress">
+    <%= link_to user_course_subject_path(subject, status: "finished"),
+      method: :patch, data: {confirm: t(".sure_finish")} do %>
+      <div class="dropdown-item"><%= t ".finish_subject" %></div>
+    <% end %>
+    <%= link_to user_course_subject_path(subject, status: "canceled"),
+      method: :patch, data: {confirm: t(".sure_cancel")} do %>
+      <div class="dropdown-item"><%= t ".cancel_subject" %></div>
+    <% end %>
+  </div>
+<% elsif subject.finished? %>
+  <div class="btn btn-success-outline w-100"><%= t ".finished" %></div>
+<% else %>
+  <div class="btn btn-fail-outline w-100"><%= t ".canceled" %></div>
+<% end %>

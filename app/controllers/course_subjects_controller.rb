@@ -41,7 +41,8 @@ class CourseSubjectsController < ApplicationController
   end
 
   def load_course_subjects
-    @course_subject = CourseSubject.find_by id: params[:id]
+    @course_subject = CourseSubject.includes(course_subject_tasks: :user_tasks,
+      user_course_subjects: :user_tasks).find_by id: params[:id]
     return if @course_subject
 
     flash[:danger] = t "not_found"

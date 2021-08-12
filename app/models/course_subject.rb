@@ -1,6 +1,7 @@
 class CourseSubject < ApplicationRecord
   COURSE_SUBJECTS_PARAMS = [:course_id, subject_id: [], subject_ids: []].freeze
-
+  COURSE_SUBJECTS_INCLUDES = [course_subject_tasks: :user_tasks,
+                              user_course_subjects: :user_tasks].freeze
   belongs_to :course
   belongs_to :subject
 

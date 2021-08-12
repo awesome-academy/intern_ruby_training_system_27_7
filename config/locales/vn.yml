@@ -13,6 +13,10 @@ vi:
   report_not_found: "Không tìm thấy báo cáo"
   report_invalid: "Không được quyền truy cập vào báo cáo"
   insufficient_privileges: "Bạn không phải admin hoặc người hướng dẫn"
+  wrong_user: "Sai người dùng"
+  course_canceled: "Khóa học đã dừng"
+  subject_must_inprogress: "Môn học phải đang trong qúa trình học"
+  course_must_start: "Khóa học phải được bắt đầu"
   layouts:
     header:
       en: "Tiếng Anh"
@@ -131,11 +135,19 @@ vi:
       start_date: "Ngày bắt đầu"
       status: "Trạng thái"
       subjects: "Môn học"
-      user_name: "Tên người dùng"
+      username: "Tên người dùng"
       participants: "Người tham gia"
       name: "Tên"
       supervisor_list: "Danh sách người hướng dẫn (%{count})"
       trainee_list: "Danh sách học viên (%{count})"
+      sure_finish: "Bạn muốn hoàn thành khóa học?"
+      sure_cancel: "Bạn muốn dừng khóa học?"
+      finish_course: "Hoàn thành khóa học"
+      cancel_course: "Dừng khóa học"
+    update:
+      success: "Kết thúc khóa học thành công"
+      fail: "Kết thúc khóa học thất bại"
+      unfinish: "Bạn chưa hoàn thành hết các môn học"
     user_subject:
       time: "Thời gian"
       not_start: "Môn học chưa bắt đầu"
@@ -143,6 +155,21 @@ vi:
       sure: "Bạn chắc chắn chứ?"
     my_course:
       last_updated: "Lần cuối cập nhật"
+    status_bar:
+      start: "Bắt đầu"
+      inprogress: "Đang trong quá trình học"
+      finish_subject: "Hoàn thành môn học"
+      cancel_subject: "Ngừng môn học"
+      finished: "Đã hoàn thành"
+      canceled: "Đã ngừng lại"
+      sure_start: "Bạn muốn bắt đầu môn học?"
+      sure_finish: "Bạn muốn hoàn thành môn học?"
+      sure_cancel: "Bạn muốn dừng môn học (dừng luôn khóa học)"
+  user_course_subjects:
+    update:
+      success : "Cập nhật môn học thành công"
+      fail: "Cập nhật môn học thất bại"
+      first_subject: "Bạn chưa hoàn thành môn học trước"
   user_reports:
     index:
       heading: "Lịch sử báo cáo"
