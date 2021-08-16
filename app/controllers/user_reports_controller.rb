@@ -2,11 +2,12 @@ class UserReportsController < ApplicationController
   before_action :logged_in_user
   before_action :load_report, only: %i(show edit destroy)
   before_action :correct_user, except: %i(index new create)
-  before_action :load_course, except: %i(index show destroy)
+  before_action :load_course, except: %i(show destroy)
 
   def index
     @user_reports = current_user.user_reports
-                                .includes(:course).recent.page(params[:page])
+                                .includes(:course).search(params)
+                                .recent.page(params[:page])
                                 .per Settings.course_index_page
   end
 

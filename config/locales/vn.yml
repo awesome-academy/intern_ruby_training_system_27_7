@@ -178,6 +178,11 @@ vi:
       date: "Ngày"
       course: "Khóa học"
       content: "Nội dung"
+      search: "Tìm kiếm"
+      apply: " Áp dụng"
+      reset: "Đặt lại"
+      result: "Kết quả (%{size})"
+      no_result: "Không tìm thấy báo cáo nào"
     new:
       heading: "Tạo báo cáo mới"
       new_report: "Tạo báo cáo mới"
