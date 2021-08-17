@@ -182,6 +182,11 @@ en:
       date: "Date"
       course: "Course"
       content: "Content"
+      search: "Search"
+      apply: " Apply"
+      reset: "Reset"
+      result: "Result (%{size})"
+      no_result: "No reports found"
     new:
       heading: "New report"
       new_report: "New report"

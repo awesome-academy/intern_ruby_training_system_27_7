@@ -96,6 +96,21 @@ img[alt*="subject_logo"]{
 }
 
 .required:after {
-    content: " *";
-    color: $red;
+  content: " *";
+  color: $red;
+}
+
+.report-search {
+  margin: 15px;
+  max-width: 400px;
+  border: 2px solid $white;
+  border-radius: 5px;
+  background-color: $white;
+  padding: 25px;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
 }
