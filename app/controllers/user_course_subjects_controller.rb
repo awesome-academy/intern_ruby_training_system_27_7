@@ -6,12 +6,7 @@ class UserCourseSubjectsController < ApplicationController
   before_action :subject_inprogress?, :first_subject_start?
 
   def update
-    if @user_course_subject.start? && params[:status]
-      start_time_params = {start_time: Time.current}
-      @user_course_subject_params.merge start_time_params
-    end
-
-    if @user_course_subject.update @user_course_subject_params
+    if @user_course_subject.update user_course_subject_params
       flash[:success] = t ".success"
     else
       flash[:danger] = t ".fail"
@@ -22,8 +17,12 @@ class UserCourseSubjectsController < ApplicationController
 
   private
   def user_course_subject_params
-    @user_course_subject_params = params.permit UserCourseSubject::
-                                                USER_COURSE_SUBJECT_PARAMS
+    subject_params = params.permit UserCourseSubject::USER_COURSE_SUBJECT_PARAMS
+    if @user_course_subject.start? && params[:status] == "inprogress"
+      start_time_params = {start_time: Time.current}
+      return subject_params.merge start_time_params
+    end
+    subject_params
   end
 
   def load_user_course_subject

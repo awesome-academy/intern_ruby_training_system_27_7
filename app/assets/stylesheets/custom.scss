@@ -114,3 +114,28 @@ img[alt*="subject_logo"]{
   background-color: red;
   display: table;
 }
+
+.course-search-status {
+  max-width: 15%;
+}
+
+.course-search-date-from {
+  max-width: 40%;
+}
+
+.course-search-date-to {
+  max-width: 30%;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+  line-height: 1.5;
+  padding: 0 0.5rem;
+}

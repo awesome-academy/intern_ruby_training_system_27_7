@@ -6,9 +6,10 @@ class UserCoursesController < ApplicationController
   before_action :course_start?, :finish_all_subject?, only: %i(update)
 
   def index
-    @user_courses = current_user.user_courses.includes(:course)
-                                .page(params[:page])
-                                .per Settings.course_index_page
+    @q = current_user.user_courses.ransack params[:q]
+    @user_courses = @q.result.includes(:course)
+                      .page(params[:page])
+                      .per Settings.course_index_page
   end
 
   def create

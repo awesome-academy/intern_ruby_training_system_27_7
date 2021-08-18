@@ -6,6 +6,26 @@
 
 <section class="content">
   <div class="container-fluid">
+    <div class="col-md-8 offset-md-2">
+      <%= search_form_for @q do |f| %>
+        <div class="input-group">
+          <%= f.search_field :name_cont, class: "form-control form-control-lg
+            course-search-name", placeholder: t(".name") %>
+
+          <%= f.select :status_eq, Course.statuses.to_a.map {|s| [s[0].humanize, s[1]]},
+            {:include_blank => t(".status")}, class: "form-control form-control-lg
+            course-search-status" %>
+          <%= f.date_field :created_at_date_equals, class: "form-control
+            form-control-lg datetimepicker-input course-search-date-from",
+            placeholder: t(".created_at") %>
+          <div class="input-group-append">
+            <%= button_tag type: "submit", class: "btn btn-lg btn-default" do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <div class="mycourse-row mt-3">
       <%= render partial: "user_courses/my_course", collection: @user_courses,
         as: :user_course %>

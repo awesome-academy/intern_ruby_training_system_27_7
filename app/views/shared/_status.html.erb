@@ -1,0 +1,22 @@
+<% case status %>
+<% when "start" %>
+  <small class="badge badge-info">
+    <i class="far fa-clock"></i>
+    <%= t ".start" %>
+  </small>
+<% when "inprogress" %>
+  <small class="badge badge-warning">
+    <i class="far fa-clock"></i>
+    <%= t ".inprogress" %>
+  </small>
+<% when "finished" %>
+  <small class="badge badge-success">
+    <i class="fas fa-check"></i>
+    <%= t ".finished" %>
+  </small>
+<% when "canceled" %>
+  <small class="badge badge-danger">
+    <i class="fas fa-times"></i>
+    <%= t ".canceled" %>
+  </small>
+<% end %>
