@@ -53,7 +53,11 @@ group :production do
 end
 
 group :development, :test do
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
   gem "rspec-rails", "~> 4.0.1"
+  gem "simplecov"
+  gem "simplecov-rcov"
 end
 
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
