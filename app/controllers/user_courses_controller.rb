@@ -17,11 +17,11 @@ class UserCoursesController < ApplicationController
     begin
       if @course.update user_ids: (@course.user_ids << params[:user_id]).flatten
         flash[:success] = t ".success"
-      else
-        flash[:danger] = t ".failed"
       end
     rescue ActiveRecord::RecordNotUnique
       flash[:danger] = t ".user_in_course"
+    rescue StandardError
+      flash[:danger] = t ".failed"
     end
 
     redirect_back fallback_location: courses_path
@@ -39,9 +39,11 @@ class UserCoursesController < ApplicationController
   end
 
   def update
-    if @user_course.update status: params[:status]
-      flash[:success] = t ".success"
-    else
+    begin
+      if @user_course.update status: params[:status]
+        flash[:success] = t ".success"
+      end
+    rescue StandardError
       flash[:danger] = t ".fail"
     end
 
@@ -67,7 +69,7 @@ class UserCoursesController < ApplicationController
                              .find_by id: params[:id]
     return if @user_course
 
-    flash[:danger] = t "insufficient_privileges"
+    flash[:danger] = t "not found"
     redirect_to root_path
   end
 
