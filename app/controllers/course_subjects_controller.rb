@@ -1,5 +1,5 @@
 class CourseSubjectsController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :logged_in_supervisor
   before_action :load_course_subjects, only: %i(show destroy)
 

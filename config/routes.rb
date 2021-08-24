@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
+    devise_for :users, controllers: {sessions: "sessions"}
     resources :trainees, except: :show
     resources :users, only: %i(show edit update)
     resources :courses do

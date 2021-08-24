@@ -69,6 +69,7 @@ vi:
       new_user: "Người dùng mới?"
       signup: "Đăng ký"
       logged_in: "Bạn đã đăng nhập."
+      remember_me: "Ghi nhớ người dùng"
     create:
       invalid_login: "Tài khoản/Mật khẩu không hợp lệ"
   courses:

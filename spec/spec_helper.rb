@@ -100,8 +100,5 @@ RSpec.configure do |config|
 
   SimpleCov.start "rails"
 
-  Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
-  config.include SpecTestHelper, :type => :controller
-
   require "pry"
 end

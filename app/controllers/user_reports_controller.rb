@@ -1,5 +1,5 @@
 class UserReportsController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :load_report, only: %i(show edit destroy)
   before_action :correct_user, except: %i(index new create)
   before_action :load_course, except: %i(show destroy)

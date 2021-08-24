@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :logged_in_supervisor, only: %i(new create destroy)
   before_action :load_subjects, only: %i(new create show)
   before_action :load_course, only: %i(show destroy)

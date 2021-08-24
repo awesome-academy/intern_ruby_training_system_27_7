@@ -1,5 +1,5 @@
 class TraineesController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :logged_in_supervisor
   before_action :load_trainee, only: %i(edit update destroy)
 

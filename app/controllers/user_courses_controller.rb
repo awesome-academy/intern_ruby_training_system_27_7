@@ -1,5 +1,5 @@
 class UserCoursesController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :logged_in_supervisor, except: %i(index show update)
   before_action :load_user_course, except: %i(index create)
   before_action :correct_user, only: %i(update)

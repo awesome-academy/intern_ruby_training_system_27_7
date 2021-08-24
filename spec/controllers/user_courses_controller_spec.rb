@@ -19,7 +19,7 @@ RSpec.describe UserCoursesController, type: :controller do
     user_course: user_course_13, course_subject: course_subject_13,
     status: "start"}
 
-  before{login user1}
+  before{sign_in user1}
 
   describe "GET #index" do
     before{get :index}
@@ -36,7 +36,7 @@ RSpec.describe UserCoursesController, type: :controller do
   describe "POST #create" do
     context "when user course information is valid" do
       before do
-        login user3
+        sign_in user3
         post :create, params: {user_course: {course_id: course.id,
           user_id: [user1.id], user_ids: [user3.id]}}
       end
@@ -52,7 +52,7 @@ RSpec.describe UserCoursesController, type: :controller do
 
     context "when user course information is invalid" do
       before do
-        login user3
+        sign_in user3
         post :create, params: {user_course: {course_id: nil,
           user_id: nil, user_ids:[nil]}}
       end
@@ -71,7 +71,7 @@ RSpec.describe UserCoursesController, type: :controller do
       let!(:user_course_11){FactoryBot.create :user_course, course: course_1,
         user: user1}
       before do
-        login user3
+        sign_in user3
         post :create, params: {user_course: {course_id: course_1.id,
           user_id: [user1.id], user_ids: [user1.id]}}
       end
@@ -196,7 +196,7 @@ RSpec.describe UserCoursesController, type: :controller do
   describe "DELETE #destroy" do
     context "when delete user course successfully" do
       before do
-        login user3
+        sign_in user3
         delete :destroy, params: {id: user_course_1.id}
       end
 
@@ -214,7 +214,7 @@ RSpec.describe UserCoursesController, type: :controller do
         course: course, id: 1000)}
 
       before do
-        login user3
+        sign_in user3
         allow(user_course_14).to receive(:destroy).and_return(false)
         UserCourse.stub_chain(:includes, :find_by).and_return(user_course_14)
         delete :destroy, params: {id: user_course_14.id}
