@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
-
   before_action :set_locale
 
   private
@@ -15,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
 
     flash[:danger] = t "please_login"
     redirect_to login_url

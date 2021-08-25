@@ -9,6 +9,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap-kaminari-views"
 gem "bootstrap-sass", "3.4.1"
 gem "config"
+gem "devise"
 gem "faker", "2.1.2"
 gem "figaro"
 gem "i18n-js"

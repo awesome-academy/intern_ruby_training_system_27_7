@@ -65,4 +65,6 @@ RSpec.configure do |config|
   RSpec.configure do |config|
     config.include FactoryBot::Syntax::Methods
   end
+
+  Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 end

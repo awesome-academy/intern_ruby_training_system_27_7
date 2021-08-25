@@ -13,7 +13,7 @@ RSpec.describe UserReportsController, type: :controller do
   let(:report_2){FactoryBot.create :user_report, content: "The first report",
                    date: 2.days.ago, course: course, user: user2}
 
-  before{login user}
+  before{sign_in user}
 
   describe "GET /index" do
     context "when user has courses" do
@@ -26,7 +26,7 @@ RSpec.describe UserReportsController, type: :controller do
 
     context "when user don't have course" do
       before do
-        login user3
+        sign_in user3
         get :index
       end
 

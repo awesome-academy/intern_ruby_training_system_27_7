@@ -2,7 +2,7 @@
 
 <div class="center jumbotron">
   <h1><%= t ".intro" %></h1>
-  <% if logged_in? %>
+  <% if user_signed_in? %>
     <%= t ".welcome", role: current_user.role_id %>
   <% else %>
     <h2>

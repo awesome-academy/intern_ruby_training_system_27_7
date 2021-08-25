@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_020119) do
+ActiveRecord::Schema.define(version: 2021_08_24_033536) do
 
   create_table "course_subject_tasks", charset: "utf8", force: :cascade do |t|
     t.bigint "course_subject_id", null: false
@@ -108,12 +108,16 @@ ActiveRecord::Schema.define(version: 2021_07_28_020119) do
 
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email"
-    t.string "password_digest"
+    t.string "encrypted_password"
     t.string "full_name"
     t.integer "role_id", default: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "course_subject_tasks", "course_subjects"

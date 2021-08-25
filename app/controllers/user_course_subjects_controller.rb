@@ -1,5 +1,5 @@
 class UserCourseSubjectsController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :load_user_course_subject, :user_course_subject_params
   before_action :correct_user
   before_action :course_cancel?

@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   TRAINEE_PARAMS = %i(email full_name password password_confirmation).freeze
   USER_PARAMS = %i(email full_name password password_confirmation).freeze
   USER_INCLUDES = [user_courses: {user_course_subjects: :user_tasks}].freeze
@@ -20,8 +25,6 @@ class User < ApplicationRecord
   scope :get_name, ->{select(:id, :full_name)}
 
   enum role_id: {admin: 0, supervisor: 1, trainee: 2}
-
-  has_secure_password
 
   class << self
     def digest string

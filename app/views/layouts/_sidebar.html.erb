@@ -14,7 +14,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="info">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <%= link_to current_user.full_name, user_path(current_user) %>
         <% end %>
       </div>
@@ -23,7 +23,7 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <%= render "sidebar/course" %>
           <% if current_user.admin? || current_user.supervisor? %>
             <%= render "sidebar/user" %>
