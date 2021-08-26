@@ -5,10 +5,11 @@ class UserReportsController < ApplicationController
   before_action :load_course, except: %i(show destroy)
 
   def index
-    @user_reports = current_user.user_reports
-                                .includes(:course).search(params)
-                                .recent.page(params[:page])
-                                .per Settings.course_index_page
+    @q = current_user.user_reports.ransack(params[:q])
+    @q.sorts = UserReport::SORT_PARAMS if @q.sorts.empty?
+
+    @user_reports = @q.result.includes(:course)
+                      .page(params[:page]).per Settings.course_index_page
   end
 
   def new

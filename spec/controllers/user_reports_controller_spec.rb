@@ -12,6 +12,8 @@ RSpec.describe UserReportsController, type: :controller do
                    date: 2.days.ago, course: course, user: user}
   let(:report_2){FactoryBot.create :user_report, content: "The first report",
                    date: 2.days.ago, course: course, user: user2}
+  let(:report_4){FactoryBot.create :user_report, content: "The second report",
+                   date: 1.days.ago, course: course, user: user}
 
   before{sign_in user}
 
@@ -32,6 +34,32 @@ RSpec.describe UserReportsController, type: :controller do
 
       it "redirect to root url" do
         expect(response).to redirect_to root_url
+      end
+    end
+  end
+
+  describe "GET /index with search" do
+    context "when user search course and result not empty" do
+      before do
+        get :index, params: {q: {content_cont: "",
+          course_name_start: course.name,
+          date_gteq: 3.days.ago, date_lteq: 1.days.ago, contain_cont: ""}}
+      end
+
+      it "will return result with order" do
+        expect(assigns(:user_reports)).to eq([report_4, report_1])
+      end
+    end
+
+    context "when user search course and result empty" do
+      before do
+        get :index, params: {q: {content_cont: "",
+          course_name_start: "",
+          date_gteq: 3.days.ago, date_lteq: 3.days.ago, contain_cont: ""}}
+      end
+
+      it "will return empty array" do
+        expect(assigns(:user_reports)).to be_empty
       end
     end
   end
