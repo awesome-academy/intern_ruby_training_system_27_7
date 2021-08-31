@@ -17,7 +17,7 @@
         </div>
         <div class="subject-actions">
           <div class="text-right">
-            <% if current_user.supervisor? || current_user.admin? %>
+            <% if can? :manage, course_subject_task %>
               <%= link_to course_subject_task, method: :delete,  data: {confirm: t(".sure")} do %>
                 <div class="btn btn-danger btn-sm">
                   <i class="fas fa-trash">

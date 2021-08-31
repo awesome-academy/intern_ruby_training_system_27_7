@@ -1,6 +1,6 @@
 class CourseSubjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :logged_in_supervisor
+  authorize_resource
   before_action :load_course_subjects, only: %i(show destroy)
 
   def show

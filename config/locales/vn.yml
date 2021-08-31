@@ -280,3 +280,6 @@ vi:
       previous: "‹ TRƯỚC"
       next: "SAU ›"
       truncate: "…"
+  unauthorized:
+    manage:
+      all: "Bạn không có quyền truy cập vào trang này."
