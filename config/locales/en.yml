@@ -53,6 +53,11 @@ en:
     error_messages:
       intro: "The form contains"
       error: "error"
+    status:
+      start: "Start"
+      inprogress: "Inprogress"
+      finished: "Finished"
+      canceled: "Canceled"
   static_pages:
     home:
       heading: "Home"
@@ -81,6 +86,8 @@ en:
       course_name: "Course name"
       start_time: "Start time"
       status: "Status"
+      from: "Start from"
+      to: "To"
     show:
       start_date: "Start date"
       status: "Status"
@@ -134,6 +141,9 @@ en:
       user_in_course: "User had been in course"
     index:
       heading: "My course"
+      name: "Course's name or participants"
+      status: "Status"
+      created_at: "Created at"
     show:
       start_date: "Start date"
       status: "Status"

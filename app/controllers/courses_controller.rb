@@ -6,7 +6,10 @@ class CoursesController < ApplicationController
   before_action :load_trainees, :load_supervisors, only: %i(new create show)
 
   def index
-    @courses = Course.page(params[:page]).per Settings.course_index_page
+    @q = Course.ransack params[:q]
+    @q.sorts = Course::SORT_PARAMS if @q.sorts.empty?
+
+    @courses = @q.result.page(params[:page]).per Settings.course_index_page
   end
 
   def new

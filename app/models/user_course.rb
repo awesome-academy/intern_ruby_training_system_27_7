@@ -19,6 +19,12 @@ class UserCourse < ApplicationRecord
 
   enum status: {start: 0, inprogress: 1, finished: 2, canceled: 3}
 
+  ransack_alias :name, :course_name_or_user_full_name
+
+  ransacker :created_at, type: :date do
+    Arel.sql("date(user_courses.created_at)")
+  end
+
   def add_user_course_subjects
     return unless trainee?
 

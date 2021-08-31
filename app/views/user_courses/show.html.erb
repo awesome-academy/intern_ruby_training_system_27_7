@@ -35,7 +35,9 @@
               </li>
               <li class="list-group-item">
                 <b><%= t ".status" %></b>
-                <div class="float-right"><%= @user_course.status %></div>
+                <div class="float-right">
+                  <%= render "shared/status", status: @user_course.status %>
+                </div>
               </li>
               <li class="list-group-item">
                 <b><%= t ".subjects" %></b>

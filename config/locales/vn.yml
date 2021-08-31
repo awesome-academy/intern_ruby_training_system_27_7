@@ -53,6 +53,11 @@ vi:
     error_messages:
       intro: "Biểu mẫu chứa"
       error: "lỗi"
+    status:
+      start: "Bắt đầu"
+      inprogress: "Trong quá trình"
+      finished: "Hoàn thành"
+      canceled: "Dừng"
   static_pages:
     home:
       heading: "Trang chủ"
@@ -81,6 +86,8 @@ vi:
       course_name: "Tên khóa học"
       start_time: "Thời gian bắt đầu"
       status: "Trạng thái"
+      from: "Bắt đầu từ"
+      to: "Tới"
     show:
       start_date: "Ngày bắt đầu"
       status: "Trạng thái"
@@ -134,6 +141,9 @@ vi:
       user_in_course: "Thành viên đã trong khóa học này"
     index:
       heading: "Khóa học của tôi"
+      name: "Tên khóa học hoặc thành viên"
+      status: "Trạng thái"
+      created_at: "Ngày tạo"
     show:
       start_date: "Ngày bắt đầu"
       status: "Trạng thái"

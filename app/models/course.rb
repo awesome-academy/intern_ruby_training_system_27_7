@@ -10,6 +10,8 @@ class Course < ApplicationRecord
     {user_course_subjects: :user_tasks}], user_courses:
     {user_course_subjects: :user_tasks}].freeze
 
+  SORT_PARAMS = ["name desc", "status asc", "start_time desc"].freeze
+
   delegate :admin, :supervisor, :trainee, to: :users
 
   has_many :course_subjects, dependent: :destroy

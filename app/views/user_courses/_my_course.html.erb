@@ -10,7 +10,7 @@
       <h4 class="my-2">
         <%= link_to user_course.course_name, user_course %>
       </h4>
-      <p> <%= user_course.status %> </p>
+      <p><%= render "shared/status", status: user_course.status %></p>
     </div>
     <div class="mycourse-footer">
       <div class="mycourse-create" data-toggle="tooltip" data-placement="bottom"

@@ -6,7 +6,7 @@
     <%= course.start_time.strftime Settings.time_format %>
   </td>
   <td>
-    <%= course.status %>
+    <%= render "shared/status", status: course.status %>
   </td>
   <td class="project-actions text-right">
     <%= link_to course do %>
