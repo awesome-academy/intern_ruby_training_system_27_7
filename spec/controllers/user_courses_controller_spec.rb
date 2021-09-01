@@ -210,14 +210,11 @@ RSpec.describe UserCoursesController, type: :controller do
     end
 
     context "when delete user course failed" do
-      let(:user_course_14) {double(:user_course, user: user1,
-        course: course, id: 1000)}
-
       before do
         sign_in user3
-        allow(user_course_14).to receive(:destroy).and_return(false)
-        UserCourse.stub_chain(:includes, :find_by).and_return(user_course_14)
-        delete :destroy, params: {id: user_course_14.id}
+        allow_any_instance_of(UserCourse).to receive(:destroy).and_return(false)
+
+        delete :destroy, params: {id: user_course_13.id}
       end
 
       it "flash danger fail message" do

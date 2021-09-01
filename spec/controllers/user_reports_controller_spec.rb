@@ -120,12 +120,12 @@ RSpec.describe UserReportsController, type: :controller do
     context "when report existed but not owned by current_user" do
       before{get :show, params: {id: report_2.id}}
 
-      it "flash danger report invalid" do
-        expect(flash[:danger]).to eq I18n.t("report_invalid")
+      it "will flash alert report when you don't have authorized" do
+        expect(flash[:alert]).to be_present
       end
 
       it "redirect to list report page" do
-        expect(response).to redirect_to user_reports_path
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -158,12 +158,12 @@ RSpec.describe UserReportsController, type: :controller do
     context "when report existed but not owned by current_user" do
       before{get :edit, params: {id: report_2.id}}
 
-      it "flash danger report invalid" do
-        expect(flash[:danger]).to eq I18n.t("report_invalid")
+      it "will flash alert report when you don't have authorized" do
+        expect(flash[:alert]).to be_present
       end
 
       it "redirect to list report page" do
-        expect(response).to redirect_to user_reports_path
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -230,14 +230,10 @@ RSpec.describe UserReportsController, type: :controller do
     end
 
     context "delete report failed" do
-      let(:report_3) {double(:user_report, user: user, course: course, id: 100)}
-
       before do
-        allow(report_3).to receive(:destroy).and_return(false)
-        allow(UserReport).to receive(:find_by).and_return(report_3)
-        allow(controller).to receive(:correct_user).and_return(report_3)
+        allow_any_instance_of(UserReport).to receive(:destroy).and_return(false)
 
-        delete :destroy, params: {id: report_3.id}
+        delete :destroy, params: {id: report_1.id}
       end
 
       it "flash danger delete fail" do

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :logged_in_supervisor, only: %i(new create destroy)
+  authorize_resource
   before_action :load_subjects, only: %i(new create show)
   before_action :load_course, only: %i(show destroy)
   before_action :load_trainees, :load_supervisors, only: %i(new create show)
@@ -53,7 +53,7 @@ class CoursesController < ApplicationController
     @course = Course.includes(Course::COURSE_INCLUDES).find_by id: params[:id]
     return if @course
 
-    flash[:danger] = t "insufficient_privileges"
+    flash[:danger] = t "not_found"
     redirect_to root_path
   end
 

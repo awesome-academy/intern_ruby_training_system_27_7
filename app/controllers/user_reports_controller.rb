@@ -1,7 +1,7 @@
 class UserReportsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_report, only: %i(show edit destroy)
-  before_action :correct_user, except: %i(index new create)
+  before_action :load_report, only: %i(show edit update destroy)
+  authorize_resource
   before_action :load_course, except: %i(show destroy)
 
   def index
@@ -65,14 +65,6 @@ class UserReportsController < ApplicationController
     return if @user_report
 
     flash[:danger] = t "report_not_found"
-    redirect_to user_reports_path
-  end
-
-  def correct_user
-    @user_report = current_user.user_reports.find_by id: params[:id]
-    return if @user_report
-
-    flash[:danger] = t "report_invalid"
     redirect_to user_reports_path
   end
 end
