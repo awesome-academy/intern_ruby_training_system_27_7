@@ -38,18 +38,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = {host: ENV["host"]}
-
-  # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    user_name: ENV["user_email"],
-    password: ENV["user_password"],
-    authentication: "plain",
-    enable_starttls_auto: true
-  }
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -91,4 +79,16 @@ Rails.application.configure do
     Bullet.raise = true # raise an error if n+1 query occurs
     Bullet.unused_eager_loading_enable = false
   end
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {host: ENV["host"],
+    protocol: "http"}
+  config.action_mailer.smtp_settings = {
+    user_name: ENV["mail_user_name"],
+    password: ENV["mail_password"],
+    address: ENV["mail_address"],
+    domain: ENV["mail_domain"],
+    port: ENV["mail_port"],
+    authentication: :cram_md5
+  }
 end

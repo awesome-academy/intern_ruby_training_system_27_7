@@ -273,6 +273,30 @@ en:
       destroy_failed: "Delete trainee failed"
     trainee:
       sure: "Sure?"
+  devise:
+    mailer:
+      reset_password_instructions:
+        hello: "Hello"
+        request_link: "Someone has requested a link to change your password.
+          You can do this through the link below"
+        change_password: "Change my password"
+        warning: "If you didn't request this, please ignore this email."
+        info: "Your password won't change until you access the link above
+          and create a new one."
+      password_change:
+        hello: "Hello"
+        notify: "We're contacting you to notify you that your password has
+          been changed."
+    passwords:
+      new:
+        heading: "Forgot password"
+        send_me: "Send me reset password instructions"
+      edit:
+        heading: "Change your password"
+        new_password: "New password"
+        confirm_password: "Confirm new password"
+        minimum_length: "characters minimum"
+        change_password: "Change my password"
   activerecord:
     attributes:
       course:

@@ -269,6 +269,31 @@ vi:
       destroy_failed: "Xóa học viên thất bại"
     trainee:
       sure: "Bạn chắc chắn chứ?"
+  devise:
+    mailer:
+      reset_password_instructions:
+        hello: "Xin chào"
+        request_link: "Tài khoản của bạn đã yêu cầu được thay đổi mật khẩu.
+          Bạn có thể thay đổi bằng cách nhấp vào link phía dưới."
+        change_password: "Thay đổi mật khẩu của tôi"
+        warning: "Nếu bạn không phải là người thực hiện yêu cầu thay đổi, vui lòng
+          bỏ qua email này."
+        info: "Mật khẩu của bạn sẽ không thay đổi cho tới khi bạn truy cập vào
+          link phía trên và thực hiện thay đổi."
+      password_change:
+        hello: "Xin chào"
+        notify: "Chúng tôi thông báo mật khẩu của bạn vừa được thay đổi
+          thành công."
+    passwords:
+      new:
+        heading: "Quên mật khẩu"
+        send_me: "Gửi tôi hướng dẫn thay đổi mật khẩu"
+      edit:
+        heading: "Thay đổi mật khẩu"
+        new_password: "Mật khẩu mới"
+        confirm_password: "Xác nhận mật khẩu mới"
+        minimum_length: "ký tự tối thiểu"
+        change_password: "Thay đổi mật khẩu"
   activerecord:
     attributes:
       course:
