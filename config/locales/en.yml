@@ -245,6 +245,10 @@ en:
     update:
       updated_successfully: "Update profile successfully"
       updated_failed: "Update profile failed"
+  user_mailer:
+    delete_account:
+      info: "Delete account"
+      content: "Account has been deleted successfully."
   trainees:
     index:
       heading: "List of trainees"
