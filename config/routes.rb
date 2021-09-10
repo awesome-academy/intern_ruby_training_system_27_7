@@ -1,5 +1,9 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    mount Sidekiq::Web => "/sidekiq"
+
     root "static_pages#home"
     devise_for :users, controllers: {sessions: "sessions"}
     resources :trainees, except: :show

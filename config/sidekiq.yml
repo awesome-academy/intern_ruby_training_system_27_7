@@ -1,0 +1,7 @@
+:concurrency: 10
+:max_retries: 5
+staging:
+  :concurrency: 10
+:queues:
+  - default
+  - mailers

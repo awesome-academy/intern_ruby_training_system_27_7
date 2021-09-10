@@ -37,6 +37,7 @@ class TraineesController < ApplicationController
 
   def destroy
     if @trainee.destroy
+      @trainee.send_delete_account_email
       flash[:success] = t ".destroy_successfully"
     else
       flash[:danger] = t ".destroy_failed"

@@ -34,6 +34,10 @@ class User < ApplicationRecord
     end
   end
 
+  def send_delete_account_email
+    UserMailer.delete_account(email).deliver_later
+  end
+
   private
   def downcase_email
     email.downcase!

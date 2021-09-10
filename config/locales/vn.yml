@@ -241,6 +241,10 @@ vi:
     update:
       updated_successfully: "Cập nhật hồ sơ thành công"
       updated_failed: "Cập nhật hồ sơ thất bại"
+  user_mailer:
+    delete_account:
+      info: "Thông báo xóa tài khoản"
+      content: "Tài khoản của bạn đã được xóa thành công."
   trainees:
     index:
       heading: "Danh sách học viên"
