@@ -15,7 +15,8 @@ class UserCourse < ApplicationRecord
 
   accepts_nested_attributes_for :user_course_subjects, allow_destroy: true
 
-  after_create :add_user_course_subjects
+  after_create :add_user_course_subjects, :create_notification
+  after_update :create_notification
 
   enum status: {start: 0, inprogress: 1, finished: 2, canceled: 3}
 
@@ -33,5 +34,9 @@ class UserCourse < ApplicationRecord
       user_course_subjects.create! course_subject_id: co_sub.id,
                                       start_time: Time.current
     end
+  end
+
+  def create_notification
+    SendNotificationJob.perform_later self, course_name, "user_courses", user
   end
 end

@@ -58,6 +58,15 @@ vi:
       inprogress: "Trong quá trình"
       finished: "Hoàn thành"
       canceled: "Dừng"
+    notifications:
+        user_courses:
+          start: "Khóa học của bạn đã được bắt đầu"
+          finished: "Khóa học của bạn đã hoàn thành"
+          canceled: "Khóa học của bạn đã bị dừng"
+        user_course_subjects:
+          inprogress: "đã bắt đầu"
+          finished: "đã hoàn thành"
+          canceled: "đã bị dừng lại"
   static_pages:
     home:
       heading: "Trang chủ"

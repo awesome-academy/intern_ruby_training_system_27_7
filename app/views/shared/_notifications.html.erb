@@ -1,0 +1,18 @@
+<a href="#" class="dropdown-item">
+  <!-- Message Start -->
+  <div class="media">
+    <div class="media-body">
+      <h3 class="dropdown-item-title">
+        <%= noti.header %>
+        <span class="float-right text-sm text-danger"></span>
+      </h3>
+      <p class="text-sm">
+        <%= t ".#{noti.content}" %>
+      </p>
+      <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>
+        <%= noti.created_at.strftime Settings.time_format %>
+      </p>
+    </div>
+  </div>
+  <!-- Message End -->
+</a>

@@ -58,6 +58,15 @@ en:
       inprogress: "Inprogress"
       finished: "Finished"
       canceled: "Canceled"
+    notifications:
+        user_courses:
+          start: "Your course has been started"
+          finished: "Your course finished"
+          canceled: "Your course has been canceled"
+        user_course_subjects:
+          inprogress: "is inprogress"
+          finished: "finished"
+          canceled: "has been canceled"
   static_pages:
     home:
       heading: "Home"
