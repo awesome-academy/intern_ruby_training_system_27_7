@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_033536) do
+ActiveRecord::Schema.define(version: 2021_09_20_071726) do
 
   create_table "course_subject_tasks", charset: "utf8", force: :cascade do |t|
     t.bigint "course_subject_id", null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2021_08_24_033536) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_courses_on_name", unique: true
+  end
+
+  create_table "notifications", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "header"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "subjects", charset: "utf8", force: :cascade do |t|
@@ -123,6 +132,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_033536) do
   add_foreign_key "course_subject_tasks", "course_subjects"
   add_foreign_key "course_subjects", "courses"
   add_foreign_key "course_subjects", "subjects"
+  add_foreign_key "notifications", "users"
   add_foreign_key "tasks", "subjects"
   add_foreign_key "user_course_subjects", "course_subjects"
   add_foreign_key "user_course_subjects", "user_courses"

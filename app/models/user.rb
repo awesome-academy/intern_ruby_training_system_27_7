@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
   has_many :user_reports, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   validates :full_name, presence: true,
     length: {maximum: Settings.maximum_name_length}
@@ -36,6 +37,10 @@ class User < ApplicationRecord
 
   def send_delete_account_email
     UserMailer.delete_account(email).deliver_later
+  end
+
+  def send_devise_notification notification, *args
+    devise_mailer.send(notification, self, *args).deliver_later
   end
 
   private

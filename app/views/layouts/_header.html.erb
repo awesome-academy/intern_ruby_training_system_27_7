@@ -23,6 +23,22 @@
         <%= link_to image_tag("vietnam.jpg", alt: "language_logo"),
           locale: "vi" %>
       </li>
+      <% if current_user %>
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="far fa-comments"></i>
+            <span class="badge badge-danger navbar-badge">
+              <%= current_user.notifications.count %>
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right"
+            id="notification">
+            <% @notifications.each do |noti| %>
+              <%= render "shared/notifications", noti: noti %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
       <li class="nav-link">
         <% if user_signed_in? %>
           <%= link_to t(".logout"), destroy_user_session_path, method: :delete %>

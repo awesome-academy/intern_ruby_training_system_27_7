@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_locale
+  before_action :set_locale, :load_notification
 
   protect_from_forgery with: :exception
 
@@ -33,5 +33,11 @@ class ApplicationController < ActionController::Base
 
     flash[:warning] = t "insufficient_privileges"
     redirect_to root_url
+  end
+
+  def load_notification
+    return unless current_user
+
+    @notifications = current_user.notifications
   end
 end

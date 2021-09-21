@@ -5,6 +5,7 @@ class UserCourseSubject < ApplicationRecord
   belongs_to :course_subject
 
   delegate :subject_name, :current_duration, to: :course_subject, prefix: true
+  delegate :course_name, to: :user_course, prefix: true
 
   validates :status, presence: true
 
@@ -12,7 +13,7 @@ class UserCourseSubject < ApplicationRecord
   has_many :course_subject_tasks, through: :user_tasks
 
   after_create :add_user_tasks
-  after_update :start_next_subject, :cancel_course
+  after_update :start_next_subject, :cancel_course, :create_notification
 
   scope :order_by, (lambda do |column, order_type|
     order("#{column} #{order_type}")
@@ -89,5 +90,11 @@ class UserCourseSubject < ApplicationRecord
     return unless canceled?
 
     user_course.update status: "canceled"
+  end
+
+  def create_notification
+    header = user_course_course_name + "/" + course_subject_subject_name
+    SendNotificationJob.perform_later self, header, "user_course_subjects",
+                                      user_course.user
   end
 end
