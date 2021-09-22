@@ -5,8 +5,8 @@ RSpec.describe UserReportsController, type: :controller do
   let(:user2){FactoryBot.create :user, full_name: "Name 2", email: "test2@mail.com"}
   let(:user3){FactoryBot.create :user, full_name: "Name 3", email: "test3@mail.com"}
   let(:course){FactoryBot.create :course}
-  let!(:user_course){FactoryBot.create :user_course, course: course, user: user}
-  let!(:user_course2){FactoryBot.create :user_course,
+  let(:user_course){FactoryBot.create :user_course, course: course, user: user}
+  let(:user_course2){FactoryBot.create :user_course,
                         course: course, user: user2}
   let(:report_1){FactoryBot.create :user_report, content: "The first report",
                    date: 2.days.ago, course: course, user: user}
@@ -15,7 +15,13 @@ RSpec.describe UserReportsController, type: :controller do
   let(:report_4){FactoryBot.create :user_report, content: "The second report",
                    date: 1.days.ago, course: course, user: user}
 
-  before{sign_in user}
+  before do
+    sign_in user
+    allow_any_instance_of(UserCourse)
+      .to receive(:create_notification).and_return(true)
+    user_course
+    user_course2
+  end
 
   describe "GET /index" do
     context "when user has courses" do
@@ -220,13 +226,7 @@ RSpec.describe UserReportsController, type: :controller do
     context "delete report successfully" do
       before{delete :destroy, params: {id: report_1.id}}
 
-      it "flash delete successfully" do
-        expect(flash[:success]).to eq I18n.t("user_report_deleted")
-      end
-
-      it "redirect to list report page" do
-        expect(response).to redirect_to user_reports_path
-      end
+      it_behaves_like "destroy object success", :user_reports
     end
 
     context "delete report failed" do
@@ -236,13 +236,7 @@ RSpec.describe UserReportsController, type: :controller do
         delete :destroy, params: {id: report_1.id}
       end
 
-      it "flash danger delete fail" do
-        expect(flash[:danger]).to eq I18n.t("delete_fail")
-      end
-
-      it "redirect to list report page" do
-        expect(response).to redirect_to user_reports_path
-      end
+      it_behaves_like "destroy object failed", :user_reports
     end
   end
 end
