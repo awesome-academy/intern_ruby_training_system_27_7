@@ -15,17 +15,7 @@ RSpec.describe CourseSubjectTasksController, type: :controller do
 
   describe "DELETE /destroy" do
     context "when not found task to destroy" do
-      before do
-        delete :destroy, params: {id: -1}
-      end
-
-      it "will redirect to course page" do
-        expect(response).to redirect_to course_path
-      end
-
-      it "will have flash danger present" do
-        expect(flash[:danger]).to be_present
-      end
+      it_behaves_like "not found to destroy", :course
     end
 
     context "when destroy course_subject_task success" do
@@ -33,13 +23,7 @@ RSpec.describe CourseSubjectTasksController, type: :controller do
         delete :destroy, params: {id: course_subject_task.id}
       end
 
-      it "will redirect to course page" do
-        expect(response).to redirect_to course_path
-      end
-
-      it "will have flash success present" do
-        expect(flash[:success]).to be_present
-      end
+      it_behaves_like "destroy object success", :course
     end
 
     context "when destroy course_subject_task failed" do
@@ -50,13 +34,7 @@ RSpec.describe CourseSubjectTasksController, type: :controller do
         delete :destroy, params: {id: course_subject_task.id}
       end
 
-      it "will redirect to course page" do
-        expect(response).to redirect_to course_path
-      end
-
-      it "will have flash danger present" do
-        expect(flash[:danger]).to be_present
-      end
+      it_behaves_like "destroy object failed", :course
     end
   end
 end

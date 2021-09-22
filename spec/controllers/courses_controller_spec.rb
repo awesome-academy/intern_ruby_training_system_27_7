@@ -109,13 +109,7 @@ RSpec.describe CoursesController, type: :controller do
     context "delete course successfully" do
       before{delete :destroy, params: {id: course.id}}
 
-      it "flash delete successfully" do
-        expect(flash[:success]).to be_present
-      end
-
-      it "redirect to courses index" do
-        expect(response).to redirect_to courses_path
-      end
+      it_behaves_like "destroy object success", :courses
     end
 
     context "delete course failed" do
@@ -125,13 +119,7 @@ RSpec.describe CoursesController, type: :controller do
         delete :destroy, params: {id: course.id}
       end
 
-      it "flash danger delete fail" do
-        expect(flash[:danger]).to be_present
-      end
-
-      it "redirect to index course page" do
-        expect(response).to redirect_to courses_path
-      end
+      it_behaves_like "destroy object failed", :courses
     end
   end
 end

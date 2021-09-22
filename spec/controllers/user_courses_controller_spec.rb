@@ -19,7 +19,11 @@ RSpec.describe UserCoursesController, type: :controller do
     user_course: user_course_13, course_subject: course_subject_13,
     status: "start"}
 
-  before{sign_in user1}
+  before do
+    sign_in user1
+    allow_any_instance_of(UserCourse)
+      .to receive(:create_notification).and_return(true)
+  end
 
   describe "GET #index" do
     before{get :index}
@@ -200,13 +204,7 @@ RSpec.describe UserCoursesController, type: :controller do
         delete :destroy, params: {id: user_course_1.id}
       end
 
-      it "flash success message" do
-        expect(flash[:success]).to eq I18n.t("user_course_deleted")
-      end
-
-      it "redirect to course path" do
-        expect(response).to redirect_to course_path
-      end
+      it_behaves_like "destroy object success", :course
     end
 
     context "when delete user course failed" do
@@ -217,13 +215,7 @@ RSpec.describe UserCoursesController, type: :controller do
         delete :destroy, params: {id: user_course_13.id}
       end
 
-      it "flash danger fail message" do
-        expect(flash[:danger]).to eq I18n.t("delete_fail")
-      end
-
-      it "redirect to course path" do
-        expect(response).to redirect_to course_path
-      end
+      it_behaves_like "destroy object failed", :course
     end
   end
 end
