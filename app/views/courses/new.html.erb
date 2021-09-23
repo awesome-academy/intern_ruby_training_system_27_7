@@ -33,11 +33,18 @@
         </div>
         <div class="form-group">
           <%= f.label :trainees %>
-          <%= f.select :user_ids, @trainees.pluck(:full_name, :id),
-            {include_hidden: false},
-            {id: "chosen-trainee", class: "form-control", multiple: "true"} %>
+          <%= f.fields_for :user_courses do |user_course| %>
+            <%= render "user_course_fields", f: user_course %>
+          <% end %>
+
+          <div>
+            <br>
+            <%= link_to_add_association f, :user_courses,
+              class: "btn btn-primary" %>
+          </div>
         </div>
-        <%= f.submit t(".confirm"), class: "btn btn-primary" %>
+        <br>
+        <%= f.submit t(".confirm"), class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

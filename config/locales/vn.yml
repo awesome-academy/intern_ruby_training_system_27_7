@@ -97,6 +97,9 @@ vi:
       status: "Trạng thái"
       from: "Bắt đầu từ"
       to: "Tới"
+    create:
+      failed: "Cập nhật thất bại"
+      not_unique: "Không lặp lại bản ghi"
     show:
       start_date: "Ngày bắt đầu"
       status: "Trạng thái"
@@ -109,10 +112,16 @@ vi:
       supervisor_list: "Danh sách người hướng dẫn (%{count})"
       trainee_list: "Danh sách học viên (%{count})"
       add_subjects: "Thêm môn học"
+    update:
+      success: "Cập nhật thành công"
+      failed: "Cập nhật thất bại"
+      not_unique: "Không lặp lại bản ghi"
     course:
       sure: "Bạn chắc chứ ?"
     add_form:
       confirm: "Xác nhận"
+    trainees_form:
+      update: "Cập nhật"
   course_subjects:
     show:
       header: "%{name} (Thời gian: %{time})"
@@ -321,3 +330,7 @@ vi:
   unauthorized:
     manage:
       all: "Bạn không có quyền truy cập vào trang này."
+  cocoon:
+    defaults:
+      add: "Thêm"
+      remove: "Xóa"

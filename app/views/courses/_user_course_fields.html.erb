@@ -1,0 +1,12 @@
+<div class="nested-fields">
+  <div class="row">
+    <div class="pf-field col-lg-10 col-sm-10">
+      <%= f.select :user_id, @trainees.pluck(:full_name, :id),
+        {include_hidden: false}, {class: "form-control"} %>
+    </div>
+
+    <div class="col-lg-1 col-sm-1">
+      <%= link_to_remove_association f, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
