@@ -1,0 +1,16 @@
+<%= form_for @course do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :trainees %>
+    <%= f.fields_for :user_courses do |user_course| %>
+      <%= render "user_course_fields", f: user_course %>
+    <% end %>
+
+  <div>
+    <br>
+    <%= link_to_add_association f, :user_courses,
+      class: "btn btn-primary" %>
+  </div>
+  <br>
+  <%= f.submit t(".update"), class: "btn btn-success" %>
+<% end %>

@@ -97,6 +97,9 @@ en:
       status: "Status"
       from: "Start from"
       to: "To"
+    create:
+      failed: "Create failed"
+      not_unique: "Record not unique"
     show:
       start_date: "Start date"
       status: "Status"
@@ -109,10 +112,16 @@ en:
       supervisor_list: "List of supervisors (%{count})"
       trainee_list: "List of trainees (%{count})"
       add_subjects: "Add subjects"
+    update:
+      success: "Update successfully"
+      failed: "Update failed"
+      not_unique: "Record not unique"
     course:
       sure: "Are you sure ?"
     add_form:
       confirm: "Confirm"
+    trainees_form:
+      update: "Update"
   course_subjects:
     show:
       header: "%{name} (Time: %{time})"
@@ -324,3 +333,7 @@ en:
   unauthorized:
     manage:
       all: "You are not authorized to access this page."
+  cocoon:
+    defaults:
+      add: "Add record"
+      remove: "Remove record"

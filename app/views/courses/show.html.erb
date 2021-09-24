@@ -93,8 +93,30 @@
                   <thead>
                 </table>
                 <% if current_user.supervisor? %>
-                  <%= t ".add_supervisors" %>
-                  <%= render "add_form", user: @supervisors, role: :supervisor %>
+                  <a data-toggle="modal" data-target=#modal_add_supervisors>
+                    <button class="btn btn-oval btn-info
+                      btn-circle btn-sm float-right">
+                      <%= t ".add_supervisors" %>
+                    </button>
+                  </a>
+                  <div id="modal_add_supervisors" class="modal fade"
+                    role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <strong class="title">
+                            <%= t ".add_supervisors" %>
+                          </strong>
+                          <button type="button" class="close"
+                            data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                          <%= render "add_form", user: @supervisors,
+                            role: :supervisor %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 <% end %>
                 <br>
               </div>
@@ -116,8 +138,28 @@
                 </table>
                 <%= paginate @course_users %>
                 <% if current_user.supervisor? %>
-                  <%= t ".add_trainees" %>
-                  <%= render "add_form", user: @trainees, role: :trainee %>
+                  <a data-toggle="modal" data-target=#modal_add_trainees>
+                    <button class="btn btn-oval btn-info btn-circle
+                      btn-sm float-right">
+                      <%= t ".add_trainees" %>
+                    </button>
+                  </a>
+                  <div id="modal_add_trainees" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <strong class="title">
+                            <%= t ".add_trainees" %>
+                          </strong>
+                          <button type="button" class="close"
+                            data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                          <%= render "trainees_form" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 <% end %>
               </div>
             </div>

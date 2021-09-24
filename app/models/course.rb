@@ -3,7 +3,7 @@ class Course < ApplicationRecord
     subject_ids: [],
     course_subjects_attributes: [:id, :course_id, :subject_id],
     user_ids: [],
-    user_courses_attributes: [:id, :user_id, :course_id]].freeze
+    user_courses_attributes: [:id, :user_id, :course_id, :_destroy]].freeze
 
   COURSE_INCLUDES = [:subjects, :users, course_subjects:
     [{course_subject_tasks: :user_tasks},

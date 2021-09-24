@@ -47,3 +47,5 @@ $(document).on('turbolinks:load', () => {
     theme: 'bootstrap'
   });
 });
+
+require('@nathanvda/cocoon')
